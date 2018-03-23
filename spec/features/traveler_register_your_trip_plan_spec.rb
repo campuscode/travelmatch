@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Traveler register your trip plan' do
   scenario 'successfully' do
-    #Navegação
+    # Navegacao
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
@@ -11,7 +11,7 @@ feature 'Traveler register your trip plan' do
     fill_in 'Data final', with: '21/10/2018'
     click_on 'Criar'
 
-    #Expectativa
+    # Expectativa
     expect(page).to have_css('h3', text: 'Plano de Viagem')
     expect(page).to have_css('h5', text: 'Lua de Mel')
     expect(page).to have_css('li', text: '07/10/2018')
@@ -20,7 +20,7 @@ feature 'Traveler register your trip plan' do
   end
 
   scenario 'and must fill all fields' do
-    #Navegação
+    # Navegacao
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
@@ -29,12 +29,12 @@ feature 'Traveler register your trip plan' do
     fill_in 'Data final', with: ''
     click_on 'Criar'
 
-    #Expectativa
+    # Expectativa
     expect(page).to have_content('Não foi possível criar seu plano')
   end
 
   scenario "and end_date can't be smaller than start_date" do
-    #Navegação
+    # Navegacao
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
@@ -43,8 +43,7 @@ feature 'Traveler register your trip plan' do
     fill_in 'Data final', with: '01/10/2018'
     click_on 'Criar'
 
-    #Expectativa
+    # Expectativa
     expect(page).to have_content('Não foi possível criar seu plano.')
-
   end
 end
