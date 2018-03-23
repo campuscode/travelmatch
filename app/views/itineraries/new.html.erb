@@ -1,0 +1,27 @@
+<h1>Novo itinerario</h1>
+<div class="">
+  <%= form_for [@trip_plan, @itinerary] do |f| %>
+    <div class="">
+      <%= f.label :location, 'Localização' %>
+      <%= f.text_field :location %>
+    </div>
+
+    <div class="">
+      <%= f.label :season, 'Temporada' %>
+      <%= f.text_field :season %>
+    </div>
+
+    <div class="">
+      <%= f.label :start_date, 'Data início' %>
+      <%= f.text_field :start_date %>
+    </div>
+
+    <div class="">
+      <%= f.label :end_date, 'Data fim' %>
+      <%= f.text_field :end_date %>
+    </div>
+    <div class="">
+      <%= f.submit 'Salvar' %>
+    </div>
+  <% end %>
+</div>
