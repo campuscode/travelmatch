@@ -6,9 +6,9 @@ feature 'Traveler register your trip plan' do
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
-    fill_in 'Título', with: 'Lua de Mel'
-    fill_in 'Data Início', with: '07/10/2018'
-    fill_in 'Data Fim', with: '21/10/2018'
+    fill_in 'Nome', with: 'Lua de Mel'
+    fill_in 'Data inicial', with: '07/10/2018'
+    fill_in 'Data final', with: '21/10/2018'
     click_on 'Criar'
 
     #Expectativa
@@ -24,9 +24,9 @@ feature 'Traveler register your trip plan' do
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
-    fill_in 'Título', with: ''
-    fill_in 'Data Início', with: ''
-    fill_in 'Data Fim', with: ''
+    fill_in 'Nome', with: ''
+    fill_in 'Data inicial', with: ''
+    fill_in 'Data final', with: ''
     click_on 'Criar'
 
     #Expectativa
@@ -38,9 +38,9 @@ feature 'Traveler register your trip plan' do
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
-    fill_in 'Título', with: 'Mochilão na Bolívia'
-    fill_in 'Data Início', with: '07/10/2018'
-    fill_in 'Data Fim', with: '01/10/2018'
+    fill_in 'Nome', with: 'Mochilão na Bolívia'
+    fill_in 'Data inicial', with: '07/10/2018'
+    fill_in 'Data final', with: '01/10/2018'
     click_on 'Criar'
 
     #Expectativa
