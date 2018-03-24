@@ -1,1 +1,23 @@
+<%= form_tag('search', method: 'get') do %>
+  <%= label_tag(:location, 'Localização:') %>
+  <%= text_field_tag(:location, params[:location]) %>
+  <%= label_tag(:start_date, 'Data inicial:') %>
+  <%= date_field_tag(:start_date, params[:start_date]) %>
+  <%= label_tag(:end_date, 'Data final:') %>
+  <%= date_field_tag(:end_date, params[:end_date]) %>
+  <%= submit_tag('Buscar') %>
+<% end %>
+<% if @itineraries.any?  %>
+  <h1>Resultados encontrados</h1>
+  <% @itineraries.each do |itinerary| %>
+    <h1> <%= itinerary.trip_plan.title %> </h1>
+    <ul>
+      <li>Data inicial: <%= itinerary.start_date %> </li>
+      <li>Data final: <%= itinerary.end_date %> </li>
+    </ul>
+    <%= link_to 'Mais detalhes', trip_plan_path(itinerary.trip_plan) %>
+  <% end %>
+<% else %>
+<% end %>
+
 <%= link_to 'Planos de Viagem', trip_plans_path %>

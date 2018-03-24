@@ -3,6 +3,10 @@ class TripPlansController < ApplicationController
     @trip_plans = TripPlan.all
   end
 
+  def show
+    @trip_plan = TripPlan.find(params[:id])
+  end
+
   def new
     @trip_plan = TripPlan.new
   end

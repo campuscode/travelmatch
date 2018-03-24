@@ -13,7 +13,7 @@ pt-BR:
         start_date: Data inicial
         end_date: Data final
       itinerary:
-        location: Localidade
+        location: Localização
         season: Período
         start_date: Data inicial
         end_date: Data final
