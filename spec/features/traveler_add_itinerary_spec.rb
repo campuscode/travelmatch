@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Traveler add a script in Travel plan' do
+feature 'Traveler add a itinerary in Travel Plan' do
   scenario 'successfully' do
 
     tp = TripPlan.create(title: 'Férias de fim de ano',
@@ -30,5 +30,21 @@ feature 'Traveler add a script in Travel plan' do
     click_on 'Salvar'
 
     expect(page).to have_content('Você precisa preencher todos os campos.')
+  end
+
+  scenario "and start_date can't be bigger than end_date"  do
+    trip_plan = TripPlan.create(title: 'Carnaval',
+      start_date: '13/02/2019', end_date: '16/02/2019')
+
+    visit new_trip_plan_itinerary_path(trip_plan)
+
+    fill_in 'Localização', with: 'Bahia'
+    fill_in 'Temporada', with: 'Carnaval'
+    fill_in 'Data início', with: '20/02/2019'
+    fill_in 'Data fim', with: '16/02/2019'
+    click_on 'Salvar'
+
+    expect(page).to have_content('A data ínicio não pode ser maior que a data fim.')
+    expect(page).to have_css('h1', 'Novo itinerário.')
   end
 end
