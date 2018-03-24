@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      trip_plan:
+        one: Plano de Viagem
+        other: Planos de Viagem
+      itinerary:
+        one: Roteiro
+        other: Roteiros
+    attributes:
+      trip_plan:
+        title: Nome
+        start_date: Data inicial
+        end_date: Data final
+      itinerary:
+        location: Localidade
+        season: Período
+        start_date: Data inicial
+        end_date: Data final
