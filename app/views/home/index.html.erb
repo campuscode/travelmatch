@@ -1,20 +1,26 @@
 <h1>Bem vindo ao TravelMatch</h1>
 
-<%= form_tag('search', method: 'get') do %>
-  <%= label_tag(:location, 'Localização:') %>
-  <%= text_field_tag(:location) %>
-  <%= label_tag(:start_date, 'Data inicial:') %>
-  <%= text_field_tag(:start_date) %>
-  <%= label_tag(:end_date, 'Data final:') %>
-  <%= text_field_tag(:end_date) %>
+<%= form_tag(search_path, method: 'get') do %>
+  <%= label_tag(:location, 'Localização') %>
+  <%= text_field_tag(:location, params[:location]) %>
+  <%= label_tag(:start_date, 'Data inicial') %>
+  <%= date_field_tag(:start_date, params[:start_date]) %>
+  <%= label_tag(:end_date, 'Data final') %>
+  <%= date_field_tag(:end_date, params[:end_date]) %>
   <%= submit_tag('Buscar') %>
 <% end %>
-
-<h1>Resultados encontrados</h1>
-<% @itineraries.each do |itinerary| %>
-  <h1> <%= itinerary.trip_plan.title %> </h1>
+<hr>
+<%= :errors %>
+<% if @itineraries.empty? %>
+  <p>Nenhum resultado encontrado</p>
+<% else %>
+  <p>Resultados encontrados: <%= @itineraries.count %></p>
+  <% @itineraries.each do |itinerary| %>
+  <h1><%= itinerary.trip_plan.title %></h1>
+  <h2>Roteiro: <%= itinerary.location %></h2>
   <ul>
-    <li>Data inicial: <%= itinerary.start_date %> </li>
-    <li>Data final: <%= itinerary.end_date %> </li>
+    <li>Data inicial: <%= itinerary.start_date.strftime("%d/%m/%Y") %></li>
+    <li>Data final: <%= itinerary.end_date.strftime("%d/%m/%Y") %></li>
   </ul>
+  <% end %>
 <% end %>
