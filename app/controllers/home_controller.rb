@@ -16,5 +16,4 @@ class HomeController < ApplicationController
         { location: location, start: start_date, end: end_date})
     # end
   end
-
 end
