@@ -16,7 +16,7 @@ class TripPlansController < ApplicationController
 
     if @trip_plan.save
       flash[:notice] = 'Parabéns! Você criou seu plano de viagens,
-                        agora adicione um itinerário'
+                        agora adicione um roteiro'
       redirect_to trip_plans_path
     else
       flash.now[:error] = 'Não foi possível criar seu plano.'

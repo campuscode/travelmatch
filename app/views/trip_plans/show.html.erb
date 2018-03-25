@@ -1,1 +1,8 @@
 <p>Deu match!</p>
+
+<h3><%= @trip_plan.title %></h3>
+<% @trip_plan.itineraries.each do |itinerary| %>
+  <h5><%= itinerary.location %></h5>
+  <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
+  à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
+<% end %>

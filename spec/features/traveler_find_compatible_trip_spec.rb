@@ -8,10 +8,10 @@ feature 'Traveler find a compatible trip' do
                                 end_date: '01/07/2018')
 
     itinerary = Itinerary.create(location: 'Varsóvia',
-                                season: 'Férias de Julho',
-                                start_date: '01/06/2018',
-                                end_date: '01/07/2018',
-                                trip_plan: trip_plan)
+                                  season: 'Férias de Julho',
+                                  start_date: '01/06/2018',
+                                  end_date: '01/07/2018',
+                                  trip_plan: trip_plan)
 
     # Navegacao
     visit root_path
@@ -25,8 +25,6 @@ feature 'Traveler find a compatible trip' do
     expect(page).to have_content('Deu match!')
     expect(page).to have_css('h3', text: 'Mochilão na Europa')
     expect(page).to have_css('h5', text: 'Varsóvia')
-    expect(page).to have_css('li', text: 'Data inicial: 01/06/2018')
-    expect(page).to have_css('li', text: 'Data final: 01/07/2018')
-
+    expect(page).to have_css('li', text: 'De 01/06/2018 à 01/07/2018')
   end
 end
