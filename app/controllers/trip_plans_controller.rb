@@ -20,6 +20,10 @@ class TripPlansController < ApplicationController
     end
   end
 
+  def show
+    @trip_plan = TripPlan.find(params[:id])
+  end
+
   private
 
   def trip_params

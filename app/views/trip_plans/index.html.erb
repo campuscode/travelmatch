@@ -1,10 +1,15 @@
 <h3>Plano de Viagem</h3>
 
 <%= link_to 'Criar novo plano', new_trip_plan_path  %>
-
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= flash[:notice] %>
+</div>
 <% if @trip_plans.present? %>
   <% @trip_plans.each do |trip_plan|  %>
-    <h5><%= trip_plan.title %></h5>
+    <h5><%= link_to trip_plan.title, trip_plan_path(trip_plan.id) %></h5>
     <ul>
       <li>Data Início: <%= trip_plan.start_date.strftime('%d/%m/%Y') %></li>
       <li>Data Fim: <%= trip_plan.end_date.strftime('%d/%m/%Y') %></li>
