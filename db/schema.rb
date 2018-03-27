@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323223132) do
+ActiveRecord::Schema.define(version: 20180327002844) do
 
   create_table "itineraries", force: :cascade do |t|
     t.string "location"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20180323223132) do
     t.datetime "updated_at", null: false
     t.integer "trip_plan_id"
     t.index ["trip_plan_id"], name: "index_itineraries_on_trip_plan_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.text "comment"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "trip_plan_id"
+    t.index ["trip_plan_id"], name: "index_matches_on_trip_plan_id"
   end
 
   create_table "trip_plans", force: :cascade do |t|

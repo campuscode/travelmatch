@@ -1,6 +1,17 @@
+<%= flash[:notice] %>
 <h3><%= @trip_plan.title %></h3>
 <% @trip_plan.itineraries.each do |itinerary| %>
   <h5><%= itinerary.location %></h5>
   <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
   à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
+<% end %>
+
+<% if @match.nil?  %>
+  <%= form_for [@trip_plan, @match_new] do |f| %>
+    <%= f.label :comment, "Envie uma mensagem" %>
+    <%= f.text_area :comment %>
+    <%= f.submit "Solicite um match" %>
+  <% end %>
+<% else  %>
+  <p>Status: <%= @match.status %> </p>
 <% end %>
