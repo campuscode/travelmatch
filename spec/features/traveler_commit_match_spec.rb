@@ -19,6 +19,6 @@ feature 'Traveler commit a match' do
     click_on 'Solicite um match'
 
     # Expectativas
-    expect(page).to have_css("Sua solicitação foi enviada com sucesso!")
+    expect(page).to have_css('p', text: 'Status: pendent')
   end
 end

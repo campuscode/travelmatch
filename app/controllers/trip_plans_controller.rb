@@ -6,9 +6,7 @@ class TripPlansController < ApplicationController
   def show
     @trip_plan = TripPlan.find(params[:id])
     @match = @trip_plan.matches.last # .where('user = ?',current_user)
-    if @match.nil?
-      @match_new = Match.new
-    end
+    return @match_new = Match.new if @match.nil?
   end
 
   def new
