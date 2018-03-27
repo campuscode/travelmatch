@@ -13,10 +13,11 @@ pt-BR:
         start_date: Data inicial
         end_date: Data final
       itinerary:
-        location: Localização
-        season: Período
-        start_date: Data inicial
-        end_date: Data final
+        location: Localidade
+        season: Temporada
+        start_date: Data início
+        end_date: Data fim
+        season: Temporada
       match:
         statuses:
           pendent: Pendente
