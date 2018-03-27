@@ -18,7 +18,7 @@ class Itinerary < ApplicationRecord
 
   def verify_conflict
     if start_date && end_date && trip_plan
-      if trip_plan.start_date >= start_date || trip_plan.end_date <= end_date
+      if trip_plan.start_date > start_date || trip_plan.end_date < end_date
          errors.add(:base, 'A data do itinerario está fora do intervalo de data do seu plano de viagem')
       end
     end
