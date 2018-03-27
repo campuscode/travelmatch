@@ -21,6 +21,7 @@
       <li>Data inicial: <%= itinerary.start_date.strftime("%d/%m/%Y") %></li>
       <li>Data final: <%= itinerary.end_date.strftime("%d/%m/%Y") %></li>
     </ul>
+    <%= link_to 'Mais detalhes',trip_plan_path(itinerary.trip_plan) %>
     <% end %>
   <% end %>
 <% end %>
