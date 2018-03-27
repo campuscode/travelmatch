@@ -1,3 +1,10 @@
 <h3>
   <%= flash[:notice] %>
 </h3>
+
+<p><%= @itinerary.location %></p>
+<p><%= @itinerary.season %></p>
+<p><%= @itinerary.start_date %></p>
+<p><%= @itinerary.end_date %></p>
+
+<%= link_to 'Criar nova atividade', new_trip_plan_itinerary_activity_path(@itinerary.id) %>

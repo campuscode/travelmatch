@@ -11,7 +11,7 @@
 
 <% @trip_plan.itineraries.each do |i| %>
   <ul>
-    <li> <%= i.location %> </li>
+    <li> <%= link_to i.location, trip_plan_itinerary_path(i) %> </li>
     <li> <%= i.season %> </li>
     <li> <%= i.start_date.strftime('%d/%m/%Y') %> </li>
     <li> <%= i.end_date.strftime('%d/%m/%Y') %> </li>

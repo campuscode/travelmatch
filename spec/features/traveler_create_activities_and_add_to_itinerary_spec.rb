@@ -6,13 +6,13 @@ feature 'traveler register activities and add in itinerary' do
       start_date: '20/12/2018', end_date: '30/01/2019')
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019')
+      end_date: '30/01/2019', trip_plan:tp)
 
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
     click_on 'Rio de janeiro'
-    click_on 'Adicionar atividade'
+    click_on 'Criar nova atividade'
 
     fill_in 'Nome:', with: 'Almoço'
     fill_in 'Comentário:', with: 'Retaurante italiano no centro'
@@ -38,7 +38,7 @@ feature 'traveler register activities and add in itinerary' do
       start_date: '20/12/2018', end_date: '30/01/2019')
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019')
+      end_date: '30/01/2019', trip_plan:tp)
 
     visit root_path
     click_on 'Planos de Viagem'
@@ -70,7 +70,7 @@ feature 'traveler register activities and add in itinerary' do
       start_date: '20/12/2018', end_date: '30/01/2019')
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019')
+      end_date: '30/01/2019', trip_plan:tp)
 
     visit root_path
     click_on 'Planos de Viagem'
