@@ -18,4 +18,8 @@ pt-BR:
         start_date: Data início
         end_date: Data fim
         season: Temporada
-
+      match:
+        statuses:
+          pendent: Pendente
+          accepted: Aceito
+          rejected: Rejeitado
