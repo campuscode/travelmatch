@@ -14,22 +14,22 @@
   <div class="form-control col-sm-5">
     <%= form_for [@trip_plan, @itinerary] do |f| %>
       <div>
-        <%= f.label :location, 'Localização' %>
+        <%= f.label :location %>
         <%= f.text_field :location, class: 'form-control' %>
       </div>
 
       <div>
-        <%= f.label :season, 'Temporada' %>
+        <%= f.label :season %>
         <%= f.text_field :season, class: 'form-control' %>
       </div>
 
       <div>
-        <%= f.label :start_date, 'Data início' %>
+        <%= f.label :start_date %>
         <%= f.date_field :start_date, class: 'form-control' %>
       </div>
 
       <div>
-        <%= f.label :end_date, 'Data fim' %>
+        <%= f.label :end_date %>
         <%= f.date_field :end_date, class: 'form-control' %>
       </div>
       </br>
