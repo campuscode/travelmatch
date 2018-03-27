@@ -8,8 +8,8 @@ class ItinerariesController < ApplicationController
     @trip_plan = TripPlan.find(params[:trip_plan_id])
     @itinerary = @trip_plan.itineraries.build(itinerary_params)
     if  @itinerary.save
-      flash[:notice] = 'Roteiro cadastrado com sucesso.'
-      redirect_to trip_plan_itinerary_path(@trip_plan, @itinerary)
+      flash[:success] = 'Roteiro cadastrado com sucesso.'
+      redirect_to trip_plan_path(@trip_plan)
     else
       flash[:notice] = "Você precisa preencher todos os campos."
       render :new

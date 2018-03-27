@@ -22,6 +22,7 @@ class TripPlansController < ApplicationController
 
   def show
     @trip_plan = TripPlan.find(params[:id])
+    
   end
 
   private

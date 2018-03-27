@@ -1,11 +1,13 @@
 <div class="container">
   <h1>Novo itinerário</h1>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <%= flash[:notice] %>
-  </div>
+  <% if @itinerary.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <% @itinerary.errors.full_messages.each do |i| %>
     <p><%= i %></p>
   <% end %>

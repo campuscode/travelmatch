@@ -5,7 +5,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
 
     tp = TripPlan.create(title: 'Férias de fim de ano',
       start_date: '20/12/2018', end_date: '30/01/2019')
-
+    #i = Itinerary.create(location: 'Rio de janeiro', season: 'Carnaval', start_date: '20/12/2018', end_date: '30/12/2018', trip_plan_id: tp)
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
@@ -18,6 +18,11 @@ feature 'Traveler add a itinerary in Travel Plan' do
     click_on 'Salvar'
 
     expect(page).to have_content('Roteiro cadastrado com sucesso.')
+    expect(page).to have_css('li', text: 'Rio de janeiro')
+    expect(page).to have_css('li', text: 'Natal e ano novo')
+    expect(page).to have_css('li', text: '20/12/2018')
+    expect(page).to have_css('li', text: '03/01/2019')
+
   end
 
   scenario 'and has to fill all fields' do
@@ -38,7 +43,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     expect(page).to have_content('Você precisa preencher todos os campos.')
   end
 
-  xscenario "and start_date can't be bigger than end_date"  do
+  scenario "and start_date can't be bigger than end_date"  do
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
       start_date: '13/02/2019', end_date: '16/02/2019')
 
