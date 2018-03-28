@@ -1,9 +1,9 @@
-<h1>Meus Matches</h1>
+<h3>Meus Matches</h3>
 <% if @matches.empty? %>
   <p>Você não possui nenhum match.</p>
 <% else %>
   <% @matches.each do |match| %>
-    <h2><%= match.trip_plan.title %></h2>
+    <h4><%= match.trip_plan.title %></h4>
     <p>
       De: <%= match.trip_plan.start_date.strftime("%d/%m/%Y") %> a
       <%= match.trip_plan.end_date.strftime("%d/%m/%Y")%>

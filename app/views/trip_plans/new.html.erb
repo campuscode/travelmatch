@@ -5,7 +5,7 @@
       <%= msg %> <br>
   <% end %>
 <% end %>
-<%= form_for(@trip_plan)  do |f| %>
+<%= form_for(@trip_plan, html: { multipart: true }) do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -13,6 +13,10 @@
   <div>
     <%= f.label :start_date %>
     <%= f.date_field :start_date %>
+  </div>
+  <div>
+    <%= f.label :photo, 'Foto' %>
+    <%= f.file_field :photo %>
   </div>
   <div>
     <%= f.label :end_date %>

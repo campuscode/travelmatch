@@ -23,3 +23,6 @@
 .byebug_history
 
 coverage
+
+# Ignore images from users - paperclip
+/public/system/*

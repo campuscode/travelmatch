@@ -18,9 +18,11 @@ feature 'Traveler register your trip plan' do
     fill_in 'Nome', with: 'Lua de Mel'
     fill_in 'Data inicial', with: '07/10/2018'
     fill_in 'Data final', with: '21/10/2018'
+    attach_file('Foto', Rails.root.join('spec', 'support', 'default.png'))
     click_on 'Criar'
 
     # Expectativa
+    expect(page).to have_xpath("//img[contains(@src,'default.png')]")
     expect(page).to have_css('h3', text: 'Plano de Viagem')
     expect(page).to have_css('h5', text: 'Lua de Mel')
     expect(page).to have_css('li', text: '07/10/2018')
