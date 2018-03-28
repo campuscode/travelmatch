@@ -6,7 +6,7 @@
   margin: 0 6px;
 
   &__content {
-    position: absolute;
+    width: 100%;
 
     @include small {
       position: relative;

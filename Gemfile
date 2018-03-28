@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'paperclip', '~> 6.0.0'
 gem 'puma', '~> 3.7'

@@ -1,12 +1,9 @@
-<nav>
-  <% if user_signed_in? %>
-    <%= link_to 'Meus planos', my_plans_path %> |
-    <%= link_to 'Meus matches', matches_path %> |
-    <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Entrar', new_user_session_path %>
-  <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-</nav>
-<hr>
+<% if user_signed_in? %>
+  <%= link_to 'Meus planos', my_plans_path, class: "py-2 d-none d-md-inline-block" %>
+  <%= link_to 'Meus matches', matches_path, class: "py-2 d-none d-md-inline-block" %> |
+  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "py-2 d-none d-md-inline-block" %>
+<% else %>
+  <%= link_to 'Entrar', new_user_session_path, class: "py-2 d-none d-md-inline-block" %>
+<% end %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>

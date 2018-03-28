@@ -12,13 +12,12 @@
   <body>
     <nav class="site-header sticky-top py-1">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <h1>Travel Match</h1>
+        <h1 class="logo py-2">Travel Match</h1>
+        <%= render 'shared/nav' %>
       </div>
     </nav>
     <%= flash[:error] %>
-    <h1>Travel Match</h1>
     <%= flash[:error] %>
-    <%= render 'shared/nav' %>
     <%= yield %>
   </body>
 </html>
