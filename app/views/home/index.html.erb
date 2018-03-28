@@ -7,7 +7,9 @@
           <%= link_to 'Planos de Viagem', trip_plans_path, class: 'pill pull-right' %>
         </p>
       </header>
-
+<% if user_signed_in? %>
+  <%= link_to 'Planos de Viagem', trip_plans_path %>
+<% end %>
       <%= form_tag(search_path, method: 'get', class: 'form--line row') do %>
         <div class="input-group col-md-5 text-left">
           <%= label_tag(:location, 'Localização', class: 'display-block') %>

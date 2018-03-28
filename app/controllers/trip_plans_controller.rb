@@ -5,8 +5,12 @@ class TripPlansController < ApplicationController
 
   def show
     @trip_plan = TripPlan.find(params[:id])
-    @match = @trip_plan.matches.last # .where('user = ?',current_user)
-    return @match_new = Match.new if @match.nil?
+    if @trip_plan.user == current_user
+      @matches = @trip_plan.matches
+    else
+      @match = @trip_plan.matches.where('user_id = ?', current_user)
+      return @match = Match.new if @match.empty?
+    end
   end
 
   def new
@@ -14,10 +18,10 @@ class TripPlansController < ApplicationController
   end
 
   def create
-    @trip_plan = TripPlan.create(trip_params)
-
+    @trip_plan = TripPlan.new(trip_params)
+    @trip_plan.user = current_user
     if @trip_plan.save
-      flash[:notice] = 'Parabéns! Você criou seu plano de viagens,
+      flash[:notice] = 'Parabéns! Você criou seu plano de viagem,
                         agora adicione um roteiro'
       redirect_to trip_plans_path
     else
@@ -26,9 +30,13 @@ class TripPlansController < ApplicationController
     end
   end
 
+  def my_plans
+    @trip_plans = current_user.trip_plans
+  end
+
   private
 
   def trip_params
-    params.require(:trip_plan).permit(:title, :start_date, :end_date)
+    params.require(:trip_plan).permit(:title, :start_date, :end_date, :photo)
   end
 end

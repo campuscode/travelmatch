@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Travelmatch</title>
+    <title>Travel Match</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,6 +16,9 @@
       </div>
     </nav>
     <%= flash[:error] %>
+    <h1>Travel Match</h1>
+    <%= flash[:error] %>
+    <%= render 'shared/nav' %>
     <%= yield %>
   </body>
 </html>

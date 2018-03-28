@@ -8,7 +8,16 @@ end
 gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 4.0'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+gem 'devise'
 gem 'jquery-rails'
+gem 'paperclip', '~> 6.0.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
 gem 'sass-rails', '~> 5.0'

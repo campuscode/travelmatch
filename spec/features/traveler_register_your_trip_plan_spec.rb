@@ -2,16 +2,27 @@ require 'rails_helper'
 
 feature 'Traveler register your trip plan' do
   scenario 'successfully' do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: 'Lua de Mel'
     fill_in 'Data inicial', with: '07/10/2018'
     fill_in 'Data final', with: '21/10/2018'
+    attach_file('Foto', Rails.root.join('spec', 'support', 'default.png'))
     click_on 'Criar'
 
     # Expectativa
+    expect(page).to have_xpath("//img[contains(@src,'default.png')]")
     expect(page).to have_css('h3', text: 'Plano de Viagem')
     expect(page).to have_css('h5', text: 'Lua de Mel')
     expect(page).to have_css('li', text: '07/10/2018')
@@ -20,8 +31,17 @@ feature 'Traveler register your trip plan' do
   end
 
   scenario 'and must fill all fields' do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: ''
@@ -34,8 +54,17 @@ feature 'Traveler register your trip plan' do
   end
 
   scenario "and end_date can't be smaller than start_date" do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: 'Mochilão na Bolívia'
