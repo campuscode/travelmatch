@@ -1,0 +1,18 @@
+%button {
+  @extend %subtle-round-border;
+  border: 0;
+  outline: none;
+  background-color: $primary;
+  color: $white;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all ease .4s;
+
+  &:hover {
+    background-color: $dodger-blue;
+  }
+}
+
+.button {
+  @extend %button;
+}

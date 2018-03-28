@@ -1,0 +1,19 @@
+.hero {
+  @extend %box-shadow;
+  @extend %round-border;
+  min-height: 600px;
+  padding-top: 12em;
+  margin: 0 6px;
+
+  &__content {
+    position: absolute;
+
+    @include small {
+      position: relative;
+    }
+  }
+
+  &__title {
+    font-size: 4em;
+  }
+}

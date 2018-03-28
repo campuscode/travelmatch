@@ -1,0 +1,23 @@
+%display-block {
+  display: block;
+}
+
+%text-left {
+  text-align: left;
+}
+
+%white-text {
+  color: $white;
+}
+
+.display-block {
+  @extend %display-block;
+}
+
+.text-left {
+  @extend %text-left;
+}
+
+.white-text {
+  @extend %white-text;
+}
