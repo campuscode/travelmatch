@@ -1,12 +1,22 @@
-<%= flash[:notice] %>
 <h3><%= @trip_plan.title %></h3>
+<% if flash.any? %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= flash[:success] %>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <% @trip_plan.itineraries.each do |itinerary| %>
+  <h4><%= itinerary.season %></h4>
   <h5><%= itinerary.location %></h5>
   <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
   à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
 <% end %>
 <br /> <br />
 <% if user_signed_in? %>
+<%= link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(@trip_plan) %>
 <div>
   <% if @trip_plan.user == current_user && @matches %>
     <h5>Matches recebidos</h5> <br/>
@@ -35,4 +45,6 @@
     <% end %>
   <% end %>
 </div>
+
 <% end %>
+<%= link_to 'Voltar', trip_plans_path %>
