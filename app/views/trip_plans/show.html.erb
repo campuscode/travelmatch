@@ -1,38 +1,49 @@
-<%= flash[:notice] %>
 <h3><%= @trip_plan.title %></h3>
+<% if flash.any? %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= flash[:success] %>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <% @trip_plan.itineraries.each do |itinerary| %>
+  <h4><%= itinerary.season %></h4>
   <h5><%= itinerary.location %></h5>
   <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
   à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
 <% end %>
 <br /> <br />
 <% if user_signed_in? %>
-<div>
-  <% if @trip_plan.user == current_user && @matches %>
-    <h5>Matches recebidos</h5> <br/>
-    <% @matches.each do |match| %>
-      <div>
-        <p>Usuário: <%= match.user.email %></p>
-        <p>Mensagem: <%= match.comment %></p>
-        <p>Status: <%= match.status %></p>
-      </div>
-    <% end %>
-  <% else %>
-    <% if !@match.is_a?(Match) && @match.any?  %>
-      <% @match.each do |match| %>
-        Status da solicitação de match: <p><%= match.status %> </p>
-      <% end %>
-    <% elsif @match.is_a?(Match)   %>
-      <%= form_for [@trip_plan, @match] do |f| %>
+  <%= link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(@trip_plan) %>
+  <div>
+    <% if @trip_plan.user == current_user && @matches %>
+      <h5>Matches recebidos</h5> <br/>
+      <% @matches.each do |match| %>
         <div>
-          <%= f.label :comment, "Envie uma mensagem" %> <br />
-          <%= f.text_area :comment %>
-        </div>
-        <div>
-          <%= f.submit "Solicite um match" %>
+          <p>Usuário: <%= match.user.email %></p>
+          <p>Mensagem: <%= match.comment %></p>
+          <p>Status: <%= match.status %></p>
         </div>
       <% end %>
+    <% else %>
+      <% if !@match.is_a?(Match) && @match.any?  %>
+        <% @match.each do |match| %>
+          Status da solicitação de match: <p><%= match.status %> </p>
+        <% end %>
+      <% elsif @match.is_a?(Match)   %>
+        <%= form_for [@trip_plan, @match] do |f| %>
+          <div>
+            <%= f.label :comment, "Envie uma mensagem" %> <br />
+            <%= f.text_area :comment %>
+          </div>
+          <div>
+            <%= f.submit "Solicite um match" %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 <% end %>
+<%= link_to 'Voltar', trip_plans_path %>
