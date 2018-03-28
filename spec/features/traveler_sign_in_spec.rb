@@ -50,7 +50,7 @@ feature 'Traveler sign in' do
     click_on 'Mochilão na Europa'
 
     # Expectativas
-    expect(page).to have_css('h5', text: 'Matches recebidos')
+    expect(page).to have_css('h5', text: 'Solicitações recebidas')
     expect(page).to have_css('p', text: match.user.email)
     expect(page).to have_css('p', text: match.comment)
     expect(page).to have_css('p', text: match.status)

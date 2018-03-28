@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'my_plans', to: 'trip_plans#my_plans',  as: 'my_plans'
   resources :trip_plans, only: [:index,:show,:new,:create] do
     resources :itineraries
-    resources :matches, shallow: true
+    resources :matches, shallow: true do
+      post 'accept', to: 'matches#accept'
+    end
   end
   resources :matches, only: [:index]
 end

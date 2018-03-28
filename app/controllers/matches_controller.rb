@@ -15,4 +15,10 @@ class MatchesController < ApplicationController
     flash[:notice] = 'Sua solicitação foi enviada com sucesso!'
     redirect_to match.trip_plan
   end
+
+  def accept
+    match = Match.find(params[:match_id])
+    match.accepted!
+    redirect_to trip_plan_path(match.trip_plan)
+  end
 end
