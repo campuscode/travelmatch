@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     match_params = params.require(:match).permit(:comment)
 

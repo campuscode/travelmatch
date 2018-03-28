@@ -3,9 +3,12 @@ require 'rails_helper'
 feature 'Traveler find a compatible trip' do
   scenario 'successfully' do
     # Criacao dos dados
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
     trip_plan = TripPlan.create(
       title: 'Mochilão na Europa',
-      start_date: '01/06/2018', end_date: '01/07/2018'
+      start_date: '01/06/2018', end_date: '01/07/2018', user: user_owner
     )
 
     Itinerary.create(

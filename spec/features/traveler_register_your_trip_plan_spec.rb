@@ -2,8 +2,17 @@ require 'rails_helper'
 
 feature 'Traveler register your trip plan' do
   scenario 'successfully' do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: 'Lua de Mel'
@@ -20,8 +29,17 @@ feature 'Traveler register your trip plan' do
   end
 
   scenario 'and must fill all fields' do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: ''
@@ -34,8 +52,17 @@ feature 'Traveler register your trip plan' do
   end
 
   scenario "and end_date can't be smaller than start_date" do
+    # Criacao dos dados
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     # Navegacao
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
     click_on 'Planos de Viagem'
     click_on 'Criar novo plano'
     fill_in 'Nome', with: 'Mochilão na Bolívia'

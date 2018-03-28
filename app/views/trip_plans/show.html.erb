@@ -8,29 +8,31 @@
 <br /> <br />
 <% if user_signed_in? %>
 <div>
-    <% if @trip_plan.user == current_user && @matches %>
-      <h5>Matches recebidos</h5>
-      <% @matches.each do |match| %>
-        <p><%= match.user.email %></p>
-        <p><%= match.comment %></p>
-        <p><%= match.status %></p>
+  <% if @trip_plan.user == current_user && @matches %>
+    <h5>Matches recebidos</h5> <br/>
+    <% @matches.each do |match| %>
+      <div>
+        <p>Usuário: <%= match.user.email %></p>
+        <p>Mensagem: <%= match.comment %></p>
+        <p>Status: <%= match.status %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <% if !@match.is_a?(Match) && @match.any?  %>
+      <% @match.each do |match| %>
+        Status da solicitação de match: <p><%= match.status %> </p>
       <% end %>
-    <% else  %>
-      <% if @match.is_a?(ActiveRecord::Base)  %>
-        <% @match.each do |match| %>
-          <p>Status da solicitação: <%= match.status %> </p>
-        <% end %>
-      <% elsif @match.is_a?(Match)   %>
-        <%= form_for [@trip_plan, @match] do |f| %>
-          <div>
-            <%= f.label :comment, "Envie uma mensagem" %> <br />
-            <%= f.text_area :comment %>
-          </div>
-          <div>
-            <%= f.submit "Solicite um match" %>
-          </div>
-        <% end %>
+    <% elsif @match.is_a?(Match)   %>
+      <%= form_for [@trip_plan, @match] do |f| %>
+        <div>
+          <%= f.label :comment, "Envie uma mensagem" %> <br />
+          <%= f.text_area :comment %>
+        </div>
+        <div>
+          <%= f.submit "Solicite um match" %>
+        </div>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
+</div>
 <% end %>

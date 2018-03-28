@@ -11,7 +11,6 @@ class TripPlansController < ApplicationController
       @match = @trip_plan.matches.where('user_id = ?', current_user)
       return @match = Match.new if @match.empty?
     end
-
   end
 
   def new
@@ -22,7 +21,7 @@ class TripPlansController < ApplicationController
     @trip_plan = TripPlan.new(trip_params)
     @trip_plan.user = current_user
     if @trip_plan.save
-      flash[:notice] = 'Parabéns! Você criou seu plano de viagens,
+      flash[:notice] = 'Parabéns! Você criou seu plano de viagem,
                         agora adicione um roteiro'
       redirect_to trip_plans_path
     else
