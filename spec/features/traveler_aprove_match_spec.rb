@@ -66,7 +66,7 @@ feature 'Traveler aprove a match in your trip plan' do
       start_date: '01/01/2019', end_date: '01/02/2019', trip_plan: trip_plan
     )
 
-    Match.create(
+    match = Match.create(
       comment: 'Olá, quero ver seu plano.', trip_plan: trip_plan,
       user: user_match
     )
