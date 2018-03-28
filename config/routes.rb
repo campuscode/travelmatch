@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       post 'accept', to: 'matches#accept'
     end
   end
+  resources :matches, only: [:index]
 end

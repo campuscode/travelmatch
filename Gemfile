@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'jquery-rails'
+gem 'paperclip', '~> 6.0.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
 gem 'sass-rails', '~> 5.0'

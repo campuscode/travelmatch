@@ -26,7 +26,7 @@ feature 'Traveler sign in' do
 
     trip_plan = TripPlan.create(
       title: 'Mochilão na Europa',
-      start_date: '01/06/2018', end_date: '01/07/2018', user_id: user_owner.id
+      start_date: '01/06/2018', end_date: '01/07/2018', user: user_owner
     )
 
     Itinerary.create(

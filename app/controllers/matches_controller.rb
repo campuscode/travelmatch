@@ -1,6 +1,10 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @matches = current_user.matches
+  end
+
   def create
     match_params = params.require(:match).permit(:comment)
 
