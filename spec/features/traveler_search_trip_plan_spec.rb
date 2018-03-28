@@ -3,9 +3,13 @@ require 'rails_helper'
 feature 'Traveler search for a trip plan' do
   scenario 'successfully' do
     # Criacao dos dados
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(
       title: 'Mochilão América do Sul',
-      start_date: '01/01/2019', end_date: '01/02/2019'
+      start_date: '01/01/2019', end_date: '01/02/2019', user: user_owner
     )
 
     Itinerary.create(
@@ -28,9 +32,17 @@ feature 'Traveler search for a trip plan' do
   end
   scenario 'and view only the correct trip plan' do
     # Criacao dos dados
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
+    other_owner = User.create(
+      email: 'ele@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(
       title: 'Mochilão América do Sul',
-      start_date: '01/01/2019', end_date: '01/02/2019'
+      start_date: '01/01/2019', end_date: '01/02/2019', user: user_owner
     )
 
     Itinerary.create(
@@ -40,7 +52,7 @@ feature 'Traveler search for a trip plan' do
 
     another_trip_plan = TripPlan.create(
       title: 'Férias em São Paulo',
-      start_date: '01/03/2019', end_date: '01/04/2019'
+      start_date: '01/03/2019', end_date: '01/04/2019', user: other_owner
     )
 
     Itinerary.create(
@@ -68,19 +80,31 @@ feature 'Traveler search for a trip plan' do
   end
   scenario 'and view results that are in range by start_date' do
     # Criacao dos dados
-    trip_plan_one = TripPlan.create(
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
+    other_owner = User.create(
+      email: 'ele@travel.com', password: '12345678'
+    )
+
+    another_owner = User.create(
+      email: 'ela@travel.com', password: '12345678'
+    )
+
+    trip_plan = TripPlan.create(
       title: 'Mochilão América do Sul',
-      start_date: '01/01/2019', end_date: '01/02/2019'
+      start_date: '01/01/2019', end_date: '01/02/2019', user: user_owner
     )
 
     Itinerary.create(
       location: 'São Paulo', season: 'Começo do ano', start_date: '01/01/2019',
-      end_date: '01/02/2019', trip_plan: trip_plan_one
+      end_date: '01/02/2019', trip_plan: trip_plan
     )
 
     trip_plan_two = TripPlan.create(
       title: 'Férias em São Paulo',
-      start_date: '01/03/2019', end_date: '01/04/2019'
+      start_date: '01/03/2019', end_date: '01/04/2019', user: other_owner
     )
 
     Itinerary.create(
@@ -91,7 +115,7 @@ feature 'Traveler search for a trip plan' do
 
     trip_plan_three = TripPlan.create(
       title: 'Mochilão em São Paulo',
-      start_date: '10/01/2019', end_date: '10/03/2019'
+      start_date: '10/01/2019', end_date: '10/03/2019', user: another_owner
     )
 
     Itinerary.create(
@@ -122,9 +146,17 @@ feature 'Traveler search for a trip plan' do
   end
   scenario 'and view results that are in range by end_date' do
     # Criacao dos dados
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
+    other_owner = User.create(
+      email: 'ele@travel.com', password: '12345678'
+    )
+
     trip_plan_one = TripPlan.create(
       title: 'Mochilão América do Sul',
-      start_date: '01/01/2019', end_date: '01/02/2019'
+      start_date: '01/01/2019', end_date: '01/02/2019', user: user_owner
     )
 
     Itinerary.create(
@@ -135,7 +167,7 @@ feature 'Traveler search for a trip plan' do
 
     trip_plan_two = TripPlan.create(
       title: 'Férias em São Paulo',
-      start_date: '01/03/2019', end_date: '01/04/2019'
+      start_date: '01/03/2019', end_date: '01/04/2019', user: other_owner
     )
 
     Itinerary.create(
@@ -163,9 +195,13 @@ feature 'Traveler search for a trip plan' do
   end
   scenario 'and dont found any results' do
     # Criacao dos dados
+    user_owner = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(
       title: 'Mochilão América do Sul',
-      start_date: '01/01/2019', end_date: '01/02/2019'
+      start_date: '01/01/2019', end_date: '01/02/2019', user: user_owner
     )
 
     Itinerary.create(
