@@ -1,4 +1,4 @@
-class ActivitiesController
+class ActivitiesController < ActionController::Base
   def new
 
   end

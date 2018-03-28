@@ -7,4 +7,9 @@
 <p><%= @itinerary.start_date %></p>
 <p><%= @itinerary.end_date %></p>
 
-<%= link_to 'Criar nova atividade', new_trip_plan_itinerary_activity_path(@itinerary.id) %>
+<%= link_to 'Criar nova atividade', new_trip_plan_itinerary_activity_path(@itinerary.trip_plan, @itinerary) %>
+
+<h4>Atividades</h4>
+<% @itinerary.activities.each do |activity| %>
+  <%= render activity %>
+<% end %>
