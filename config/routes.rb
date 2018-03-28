@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :itineraries
     resources :matches, shallow: true
   end
+  resources :matches, only: [:index]
 end
