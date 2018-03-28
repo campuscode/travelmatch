@@ -15,7 +15,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     fill_in 'Email', with: user_owner.email
     fill_in 'Senha', with: user_owner.password
     click_on 'Enviar'
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Adiciona Roteiro'
 
@@ -45,7 +45,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     fill_in 'Email', with: user_owner.email
     fill_in 'Senha', with: user_owner.password
     click_on 'Enviar'
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Adiciona Roteiro'
 
@@ -72,7 +72,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     fill_in 'Email', with: user_owner.email
     fill_in 'Senha', with: user_owner.password
     click_on 'Enviar'
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Adiciona Roteiro'
 
@@ -102,7 +102,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     fill_in 'Email', with: user_owner.email
     fill_in 'Senha', with: user_owner.password
     click_on 'Enviar'
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Adiciona Roteiro'
 
