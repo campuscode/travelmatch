@@ -7,17 +7,26 @@
 <% end %>
  <br /> <br />
 <div>
-  <% if @match.nil?  %>
-    <%= form_for [@trip_plan, @match_new] do |f| %>
-      <div>
-        <%= f.label :comment, "Envie uma mensagem" %> <br />
-        <%= f.text_area :comment %>
-      </div>
-      <div>
-        <%= f.submit "Solicite um match" %>
-      </div>
+  <% if @trip_plan.user = current_user  %>
+    <h5>Matches recebidos</h5>
+    <% @matches.each do |match| %>
+      <p><%= match.user.email %></p>
+      <p><%= match.comment %></p>
+      <p><%= match.status %></p>
     <% end %>
   <% else  %>
-    <p>Status: <%= @match.status %> </p>
+    <% if @match.empty?  %>
+      <%= form_for [@trip_plan, @match_new] do |f| %>
+        <div>
+          <%= f.label :comment, "Envie uma mensagem" %> <br />
+          <%= f.text_area :comment %>
+        </div>
+        <div>
+          <%= f.submit "Solicite um match" %>
+        </div>
+      <% end %>
+    <% else  %>
+      <p>Status: <%= @match.status %> </p>
+    <% end %>
   <% end %>
 </div>
