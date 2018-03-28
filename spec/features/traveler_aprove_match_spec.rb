@@ -66,12 +66,12 @@ feature 'Traveler aprove a match in your trip plan' do
       start_date: '01/01/2019', end_date: '01/02/2019', trip_plan: trip_plan
     )
 
-    match = Match.create(
+    Match.create(
       comment: 'Olá, quero ver seu plano.', trip_plan: trip_plan,
       user: user_match
     )
 
-    match = Match.create(
+    Match.create(
       comment: 'Bora fazer um mochilas?', trip_plan: trip_plan,
       user: other_user_match
     )
@@ -90,6 +90,6 @@ feature 'Traveler aprove a match in your trip plan' do
 
     # Expectativa
     expect(page).to have_css('h5', text: 'Matches deste plano')
-    expect(page).to have_css('p', text:user_match.email)
+    expect(page).to have_css('p', text: user_match.email)
   end
 end
