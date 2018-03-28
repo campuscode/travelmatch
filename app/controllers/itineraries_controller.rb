@@ -11,7 +11,7 @@ class ItinerariesController < ApplicationController
       flash[:success] = 'Roteiro cadastrado com sucesso.'
       redirect_to trip_plan_path(@trip_plan)
     else
-      flash[:notice] = 'Não foi possível criar seu roteiro'
+      flash[:error] = 'Não foi possível criar seu roteiro'
       render :new
     end
   end

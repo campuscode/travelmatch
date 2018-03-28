@@ -1,16 +1,6 @@
 <div class="container">
   <h1>Novo itinerário</h1>
-  <% if @itinerary.errors.any? %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <% @itinerary.errors.full_messages.each do |i| %>
-    <p><%= i %></p>
-  <% end %>
+
   <div class="form-control col-sm-5">
     <%= form_for [@trip_plan, @itinerary] do |f| %>
       <div>
@@ -35,6 +25,8 @@
       </br>
       <div class="">
         <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+        <span></span>
+        <%= link_to 'Voltar', trip_plan_path(@trip_plan), class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

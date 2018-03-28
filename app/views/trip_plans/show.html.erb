@@ -1,19 +1,4 @@
 <h3><%= @trip_plan.title %></h3>
-<% if flash.any? %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <%= flash[:success] %>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<% @trip_plan.itineraries.each do |itinerary| %>
-  <h5><%= itinerary.location %></h5>
-  <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
-  à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
-<% end %>
- <br /> <br />
 <div>
   <% if @match.nil?  %>
     <%= form_for [@trip_plan, @match_new] do |f| %>
@@ -24,19 +9,22 @@
       <div>
         <%= f.submit "Solicite um match" %>
       </div>
+      <hr>
     <% end %>
   <% else  %>
     <p>Status: <%= @match.status %> </p>
+    <hr>
   <% end %>
 </div>
+<h3>Roteiros:</h3>
 <%= link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(@trip_plan) %>
-
-<% @trip_plan.itineraries.each do |i| %>
-  <ul>
-    <li> <%= i.location %> </li>
-    <li> <%= i.season %> </li>
-    <li> <%= i.start_date.strftime('%d/%m/%Y') %> </li>
-    <li> <%= i.end_date.strftime('%d/%m/%Y') %> </li>
-  </ul>
+<hr>
+<% @trip_plan.itineraries.each do |itinerary| %>
+  <h5><%= itinerary.location %></h5>
+  <li><%= itinerary.season %></li>
+  <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
+  à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
+  <hr>
 <% end %>
+
 <%= link_to 'Voltar', trip_plans_path %>
