@@ -5,28 +5,32 @@
   <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
   à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
 <% end %>
- <br /> <br />
+<br /> <br />
+<% if user_signed_in? %>
 <div>
-  <% if @trip_plan.user == current_user && @matches %>
-    <h5>Matches recebidos</h5>
-    <% @matches.each do |match| %>
-      <p><%= match.user.email %></p>
-      <p><%= match.comment %></p>
-      <p><%= match.status %></p>
-    <% end %>
-  <% else  %>
-    <% if @match.present?  %>
-      <p>Status: <%= @match.status %> </p>
+    <% if @trip_plan.user == current_user && @matches %>
+      <h5>Matches recebidos</h5>
+      <% @matches.each do |match| %>
+        <p><%= match.user.email %></p>
+        <p><%= match.comment %></p>
+        <p><%= match.status %></p>
+      <% end %>
     <% else  %>
-      <%= form_for [@trip_plan, @match] do |f| %>
-        <div>
-          <%= f.label :comment, "Envie uma mensagem" %> <br />
-          <%= f.text_area :comment %>
-        </div>
-        <div>
-          <%= f.submit "Solicite um match" %>
-        </div>
+      <% if @match.is_a?(ActiveRecord::Base)  %>
+        <% @match.each do |match| %>
+          <p>Status da solicitação: <%= match.status %> </p>
+        <% end %>
+      <% elsif @match.is_a?(Match)   %>
+        <%= form_for [@trip_plan, @match] do |f| %>
+          <div>
+            <%= f.label :comment, "Envie uma mensagem" %> <br />
+            <%= f.text_area :comment %>
+          </div>
+          <div>
+            <%= f.submit "Solicite um match" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
