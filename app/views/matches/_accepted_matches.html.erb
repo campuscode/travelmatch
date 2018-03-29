@@ -1,4 +1,16 @@
-<h5>Matches deste plano</h5>
-<% matches.accepted.each do |match| %>
-  <p>Usuário: <%= match.user.email %> </p>
-<% end %>
+<hr>
+<h5><b>Matches deste plano</b></h5>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Usuário</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% matches.accepted.each do |match| %>
+      <tr>
+        <td><%= match.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

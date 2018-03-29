@@ -12,7 +12,9 @@
 
   <% if @trip_plans.present? %>
     <% @trip_plans.each do |trip_plan|  %>
+    <ul class="list-unstyled padding-top">
       <%= render trip_plan %>
+    </ul>
     <% end %>
     <% else %>
       <p>Não existem planos disponíveis</p>

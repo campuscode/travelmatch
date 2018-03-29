@@ -26,7 +26,7 @@ feature 'Traveler register your trip plan' do
     expect(page).to have_xpath("//img[contains(@src,'default.png')]")
     expect(page).to have_css('h3', text: 'Plano de Viagem')
     expect(page).to have_css('h5', text: 'Lua de Mel')
-    expect(page).to have_css('p', text: '07/10/2018 a 21/10/2018')
+    expect(page).to have_content('07/10/2018 a 21/10/2018')
     expect(current_path).to eq(trip_plans_path)
   end
 

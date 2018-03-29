@@ -3,4 +3,19 @@
   .logo {
     font-size: 26px;
   }
+
+  .py-2 + .py-2 {
+    margin-left: 1em;
+  }
+
+  .logo + .py-2 {
+    margin-left: 2em;
+  }
+
+  @include max(767px) {
+    .logo + .py-2,
+    .py-2 + .py-2 {
+      margin-left: 0;
+    }
+  }
 }

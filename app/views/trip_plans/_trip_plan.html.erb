@@ -1,6 +1,10 @@
-<%= image_tag trip_plan.photo.url(:thumb) %>
-<div id="trip_plan-<%= trip_plan.id %>">
-  <h5><%= link_to trip_plan.title, trip_plan_path(trip_plan.id) %></h5>
-  <p>De <%= I18n.l(trip_plan.start_date) %>
-    a <%= I18n.l(trip_plan.end_date) %></p>
-<div>
+  <li class="media">
+    <%= image_tag trip_plan.photo.url(:thumb), class: 'align-self-start mr-3' %>
+    <div id="trip_plan-<%= trip_plan.id %>" class="media-body">
+      <h5 class="mt-0 mb-1">
+        <%= link_to trip_plan.title, trip_plan_path(trip_plan.id) %>
+      </h5>
+        De <%= I18n.l(trip_plan.start_date) %>
+        a <%= I18n.l(trip_plan.end_date) %>
+    </div>
+  </li>
