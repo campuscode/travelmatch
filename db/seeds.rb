@@ -18,6 +18,10 @@ user_negado = User.create(
   email: 'eu@yahoo.com.br', password: '12345678'
 )
 
+user_novo = User.create(
+  email: 'glauco@glauco.com', password: '12345678'
+)
+
 #### Planos de Viagem
 
 trip_plan = TripPlan.create(title: 'Mochilão na América do Sul',

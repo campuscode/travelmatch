@@ -34,14 +34,9 @@
         </div>
         </div>
         <% else %>
-          <p>Resultados encontrados: <%= @itineraries.count %></p>
+          <h2> <%= @itineraries.count %> resultados encontrados </h2>
           <% @itineraries.each do |itinerary| %>
-            <h1><%= itinerary.trip_plan.title %></h1>
-            <h2>Roteiro: <%= itinerary.location %></h2>
-            <ul>
-              <li>Data inicial: <%= I18n.l(itinerary.start_date) %></li>
-              <li>Data final: <%= I18n.l(itinerary.end_date) %></li>
-            </ul>
+            <%= render itinerary.trip_plan %>
             <%= link_to 'Mais detalhes',trip_plan_path(itinerary.trip_plan) %>
           <% end %>
         <% end %>
