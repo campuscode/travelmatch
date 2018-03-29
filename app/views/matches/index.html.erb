@@ -5,10 +5,10 @@
   <% @matches.each do |match| %>
     <h4><%= match.trip_plan.title %></h4>
     <p>
-      De: <%= match.trip_plan.start_date.strftime("%d/%m/%Y") %> a
-      <%= match.trip_plan.end_date.strftime("%d/%m/%Y")%>
+      De: <%= I18n.l(match.trip_plan.start_date) %> a
+      <%= I18n.l(match.trip_plan.end_date)%>
     </p>
-    <p>Status: <%= match.status %></p>
+    <p>Status: <%= Match.human_attribute_name(match.status)%></p>
   <% end  %>
 <% end %>
 <%= link_to 'Voltar', root_path %>

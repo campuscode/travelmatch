@@ -8,7 +8,7 @@ class TripPlansController < ApplicationController
     if @trip_plan.user == current_user
       @matches = @trip_plan.matches
     else
-      @match = @trip_plan.matches.where('user_id = ?', current_user)
+      @match = @trip_plan.matches.where(user: current_user)
       return @match = Match.new if @match.empty?
     end
   end

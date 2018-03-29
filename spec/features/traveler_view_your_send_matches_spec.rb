@@ -40,7 +40,7 @@ feature 'Traveler view your send matches' do
     expect(page).to have_css('h3', text: 'Meus Matches')
     expect(page).to have_css('h4', text: 'Mochilão na Europa')
     expect(page).to have_css('p', text: 'De: 01/06/2018 a 01/07/2018')
-    expect(page).to have_css('p', text: 'Status: pendent')
+    expect(page).to have_css('p', text: 'Status: Pendente')
   end
   scenario 'and cant view matches from anothers users' do
     # Criacao dos dados
@@ -101,7 +101,7 @@ feature 'Traveler view your send matches' do
     expect(page).to have_css('h3', text: 'Meus Matches')
     expect(page).to have_css('h4', text: 'Mochilão na Europa')
     expect(page).to have_css('p', text: 'De: 01/06/2018 a 01/07/2018')
-    expect(page).to have_css('p', text: 'Status: pendent')
+    expect(page).to have_css('p', text: 'Status: Pendente')
 
     expect(page).not_to have_css('h4', text: 'Mochilão na América do Sul')
     expect(page).not_to have_css('p', text: 'De: 01/01/2019 a 01/02/2019')
