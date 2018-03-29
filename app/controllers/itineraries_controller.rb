@@ -1,11 +1,11 @@
 class ItinerariesController < ApplicationController
   def new
-    @trip_plan = TripPlan.find(params[:trip_plan_id])
+    @trip_plan = TripPlan.friendly.find(params[:trip_plan_id])
     @itinerary = Itinerary.new
   end
 
   def create
-    @trip_plan = TripPlan.find(params[:trip_plan_id])
+    @trip_plan = TripPlan.friendly.find(params[:trip_plan_id])
     @itinerary = @trip_plan.itineraries.build(itinerary_params)
     if @itinerary.save
       flash[:success] = 'Roteiro cadastrado com sucesso.'

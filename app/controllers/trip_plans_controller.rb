@@ -1,5 +1,5 @@
 class TripPlansController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :my_plans]
+  before_action :authenticate_user!, only: %i[new create my_plans]
   def index
     @trip_plans = TripPlan.all
   end

@@ -23,6 +23,7 @@ class TripPlan < ApplicationRecord
   end
 
   private
+
   def location_and_dates
     "#{title} inicio #{start_date} fim #{end_date}"
   end
