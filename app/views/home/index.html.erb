@@ -1,5 +1,6 @@
-<h1>Bem vindo ao TravelMatch</h1>
-<%= link_to 'Planos de Viagem', trip_plans_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Planos de Viagem', trip_plans_path %>
+<% end %>
 <hr>
 
 <%= form_tag(search_path, method: 'get') do %>

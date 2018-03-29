@@ -1,0 +1,6 @@
+<%= image_tag trip_plan.photo.url(:thumb) %>
+<div id="trip_plan-<%= trip_plan.id %>">
+  <h5><%= link_to trip_plan.title, trip_plan_path(trip_plan.id) %></h5>
+  <p>De <%= I18n.l(trip_plan.start_date) %>
+    a <%= I18n.l(trip_plan.end_date) %></p>
+<div>

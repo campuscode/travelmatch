@@ -1,20 +1,46 @@
+<h3><%= @trip_plan.title %></h3>
+<%= image_tag @trip_plan.photo.url(:medium) %>
 <% if flash.any? %>
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     <%= flash[:success] %>
+    <%= flash[:notice] %>
   </div>
 <% end %>
 
 <%= link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(@trip_plan) %>
 
-<% @trip_plan.itineraries.each do |i| %>
-  <ul>
-    <li> <%= link_to i.location, trip_plan_itinerary_path(i) %> </li>
-    <li> <%= i.season %> </li>
-    <li> <%= i.start_date.strftime('%d/%m/%Y') %> </li>
-    <li> <%= i.end_date.strftime('%d/%m/%Y') %> </li>
-  </ul>
+<% @trip_plan.itineraries.each do |itinerary| %>
+  <h4><%= link_to itinerary.season, trip_plan_itinerary_path(itinerary) %></h4>
+  <h5><%= itinerary.location %></h5>
+  <li> De <%= I18n.l(itinerary.start_date) %>
+  a <%= I18n.l(itinerary.end_date) %></li>
+<% end %>
+<br /> <br />
+<% if user_signed_in? %>
+  <div>
+    <%= @trip_plan.add_itinerary_link %>
+    <%= @trip_plan.pendent_matches %>
+    <%= @trip_plan.accepted_matches %>
+    <% unless @trip_plan.owner?(current_user) %>
+      <% if !@match.is_a?(Match) && @match.any?  %>
+        <% @match.each do |match| %>
+          Status da solicitação de match: <p><%= Match.human_attribute_name(match.status) %> </p>
+        <% end %>
+      <% elsif @match.new_record?   %>
+        <%= form_for [@trip_plan, @match] do |f| %>
+          <div>
+            <%= f.label :comment, "Envie uma mensagem" %> <br />
+            <%= f.text_area :comment %>
+          </div>
+          <div>
+            <%= f.submit "Solicite um match" %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
 <%= link_to 'Voltar', trip_plans_path %>
