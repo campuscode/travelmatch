@@ -1,10 +1,11 @@
 class TripPlansController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create my_plans]
   def index
     @trip_plans = TripPlan.all
   end
 
   def show
-    @trip_plan = TripPlan.find(params[:id]).decorate
+    @trip_plan = TripPlan.friendly.find(params[:id]).decorate
     if @trip_plan.owner?(current_user)
       @matches = @trip_plan.matches
     else
