@@ -2,12 +2,9 @@
   <div class="col-md-11 p-lg-11 mx-auto my-11">
     <div class="hero__content">
       <header class="hero__header text-left">
-        <h1 class="hero__title white-text">Bem vindo ao TravelMatch</h1>
-        <% if user_signed_in? %>
+        <h1 class="hero__title white-text">Encontre o seu roteiro ideal</h1>
           <p class="hero__paragraph">
-            <%= link_to 'Planos de Viagem', trip_plans_path, class: 'pill pull-right' %>
           </p>
-        <% end %>
       </header>
       <%= form_tag(search_path, method: 'get', class: 'form--line row') do %>
         <div class="input-group col-md-5 text-left">
@@ -27,6 +24,8 @@
     </div>
   </div>
 </section>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 
 <section class="section--journey">
   <div class="container">

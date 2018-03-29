@@ -3,6 +3,7 @@
     @extend %box-shadow;
     @extend %subtle-round-border;
     background-color: $white;
+    opacity: 0.9;
     overflow: hidden;
 
     .button {

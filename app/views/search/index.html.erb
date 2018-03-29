@@ -1,14 +1,8 @@
 <section class="position-relative overflow-hidden text-center bg-light hero" data-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=569992b9ec9111e3956a7f0933f3f7bf&auto=format&fit=crop&w=1050&q=80, https://images.unsplash.com/photo-1517868674985-0525518ae392?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3053730890eb596789102eddc38fb945&auto=format&fit=crop&w=1050&q=80, https://images.unsplash.com/photo-1507904264083-3704325da4c4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ddd394489f0e825bcab9443174edf88&auto=format&fit=crop&w=925&q=80, https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=148715fe1d5dc28d91f655e673c289a5&auto=format&fit=crop&w=925&q=80">
   <div class="col-md-11 p-lg-11 mx-auto my-11">
     <div class="hero__content">
-      <%= flash[:errors] %>
       <header class="hero__header text-left">
-        <h1 class="hero__title white-text">Busca</h1>
-        <% if user_signed_in? %>
-          <p class="hero__paragraph">
-          <%= link_to 'Planos de Viagem', trip_plans_path, class: 'pill pull-right' %>
-          </p>
-        <% end %>
+        <h1 class="hero__title white-text">Encontre o seu roteiro ideal</h1>
       </header>
       <%= form_tag(search_path, method: 'get', class: 'form--line row') do %>
         <div class="input-group col-md-5 text-left">
@@ -32,9 +26,13 @@
 <section class="section">
   <div class="container">
     <div class="section__body">
+      <%= flash[:error] %>
       <% if !@itineraries.nil?%>
         <% if @itineraries.empty? %>
-          <p>Nenhum resultado encontrado</p>
+        <div class="alert alert-secondary" role="alert">
+          Nenhum resultado encontrado
+        </div>
+        </div>
         <% else %>
           <p>Resultados encontrados: <%= @itineraries.count %></p>
           <% @itineraries.each do |itinerary| %>
