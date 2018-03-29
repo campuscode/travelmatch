@@ -12,8 +12,8 @@
 <% @trip_plan.itineraries.each do |itinerary| %>
   <h4><%= itinerary.season %></h4>
   <h5><%= itinerary.location %></h5>
-  <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
-  à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
+  <li> De <%= I18n.l(itinerary.start_date) %>
+  a <%= I18n.l(itinerary.end_date) %></li>
 <% end %>
 <br /> <br />
 <% if user_signed_in? %>

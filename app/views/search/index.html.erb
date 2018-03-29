@@ -18,8 +18,8 @@
     <h1><%= itinerary.trip_plan.title %></h1>
     <h2>Roteiro: <%= itinerary.location %></h2>
     <ul>
-      <li>Data inicial: <%= itinerary.start_date.strftime("%d/%m/%Y") %></li>
-      <li>Data final: <%= itinerary.end_date.strftime("%d/%m/%Y") %></li>
+      <li>Data inicial: <%= I18n.l(itinerary.start_date) %></li>
+      <li>Data final: <%= I18n.l(itinerary.end_date) %></li>
     </ul>
     <%= link_to 'Mais detalhes',trip_plan_path(itinerary.trip_plan) %>
     <% end %>

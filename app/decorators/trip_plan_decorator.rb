@@ -6,14 +6,13 @@ class TripPlanDecorator < ApplicationDecorator
     h.link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(object)
   end
 
-  def pendent_matches()
+  def pendent_matches
     return '' unless user_is_owner
     matches = object.matches.pendent
     h.render partial: 'matches/pendent_matches', locals: { matches: matches }
-
   end
 
-  def accepted_matches()
+  def accepted_matches
     return '' unless user_is_owner
     matches = object.matches.accepted
     h.render partial: 'matches/accepted_matches', locals: { matches: matches }

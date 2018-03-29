@@ -15,7 +15,7 @@ class TripPlan < ApplicationRecord
     errors.add(:end_date, "can't be smaller than start date")
   end
 
-  def owner?(u)
-    user == u
+  def owner?(user)
+    self.user == user
   end
 end
