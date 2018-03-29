@@ -1,12 +1,10 @@
-<%= link_to 'Home', root_path, class: "py-2 d-md-inline-block" %>
+<%= link_to 'Home', root_path, class: "py-2 d-md-inline-block"  %>
 <% if user_signed_in? %>
-  <%= link_to 'Criar novo plano', new_trip_plan_path, class: "py-2 d-md-inline-block" %>
+  <%= link_to 'Criar um Plano de Viagem', new_trip_plan_path, class: "py-2 d-md-inline-block" %>
   <%= link_to 'Meus planos', my_plans_path, class: "py-2 d-md-inline-block" %>
   <%= link_to 'Meus matches', matches_path, class: "py-2 d-md-inline-block" %>
-  Olá <%= current_user.email %>
+  <span class="py-2 d-md-inline-block">Olá <%= current_user.email %></span>
   <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "py-2 d-md-inline-block" %>
 <% else %>
   <%= link_to 'Entrar', new_user_session_path, class: "py-2 d-md-inline-block" %>
 <% end %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>

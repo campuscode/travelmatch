@@ -1,9 +1,8 @@
 .hero {
   @extend %box-shadow;
-  @extend %round-border;
-  min-height: 600px;
-  padding-top: 12em;
-  margin: 0 6px;
+  min-height: 500px;
+  padding-top: 8em;
+  margin: 0;
 
   &__content {
     width: 100%;

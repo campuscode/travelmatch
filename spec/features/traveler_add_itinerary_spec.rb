@@ -21,8 +21,8 @@ feature 'Traveler add a itinerary in Travel Plan' do
 
     fill_in 'Localidade', with: 'Rio de janeiro'
     fill_in 'Temporada', with: 'Natal e ano novo'
-    fill_in 'Data início', with: '20/12/2018'
-    fill_in 'Data fim', with: '03/01/2019'
+    fill_in 'Data inicial', with: '20/12/2018'
+    fill_in 'Data final', with: '03/01/2019'
     click_on 'Salvar'
 
     expect(page).to have_content('Roteiro cadastrado com sucesso.')
@@ -51,8 +51,8 @@ feature 'Traveler add a itinerary in Travel Plan' do
 
     fill_in 'Localidade', with: ''
     fill_in 'Temporada', with: ''
-    fill_in 'Data início', with: ''
-    fill_in 'Data fim', with: ''
+    fill_in 'Data inicial', with: ''
+    fill_in 'Data final', with: ''
     click_on 'Salvar'
 
     expect(page).to have_content('Não foi possível criar seu roteiro')
@@ -78,8 +78,8 @@ feature 'Traveler add a itinerary in Travel Plan' do
 
     fill_in 'Localidade', with: 'Bahia'
     fill_in 'Temporada', with: 'Carnaval'
-    fill_in 'Data início', with: '16/02/2019'
-    fill_in 'Data fim', with: '13/02/2019'
+    fill_in 'Data inicial', with: '16/02/2019'
+    fill_in 'Data final', with: '13/02/2019'
     click_on 'Salvar'
 
     expect(page).to(
@@ -108,8 +108,8 @@ feature 'Traveler add a itinerary in Travel Plan' do
 
     fill_in 'Localidade', with: 'Bahia'
     fill_in 'Temporada', with: 'Carnaval'
-    fill_in 'Data início', with: '20/02/2019'
-    fill_in 'Data fim', with: '28/02/2019'
+    fill_in 'Data inicial', with: '20/02/2019'
+    fill_in 'Data final', with: '28/02/2019'
     click_on 'Salvar'
 
     expect(page).to have_content("A data do itinerário está fora \
