@@ -19,7 +19,9 @@
   </ul>
 </div>
 
-<h4>Atividades</h4>
-<% @itinerary.activities.each do |activity| %>
-  <%= render activity %>
+<% if @itinerary.activities.any? %>
+  <h4>Atividades</h4>
+  <% @itinerary.activities.each do |activity| %>
+    <%= render activity %>
+  <% end %>
 <% end %>

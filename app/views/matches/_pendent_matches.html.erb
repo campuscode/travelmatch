@@ -1,10 +1,16 @@
 <h5>Solicitações recebidas</h5>
-<% matches.each do |match| %>
-  <div id="match_<%= match.id %>">
-    <p>Usuário: <%= match.user.email %></p>
-    <p>Mensagem: <%= match.comment %></p>
-    <p>Status: <%= match.status %></p>
-    <%= link_to 'Aceitar', match_accept_path(match), method: :post %>
-    <%= link_to 'Rejeitar', match_reject_path(match), method: :post %>
+<div class="row">
+  <% matches.each do |match| %>
+  <div class="col-4">
+    <div id="match_<%= match.id %>" class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= match.user.email %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"> <%= match.status %> | <%= l match.created_at, format: :short %></h6>
+        <p class="card-text"><%= match.comment %></p>
+        <%= link_to 'Aceitar', match_accept_path(match), method: :post, class: 'btn btn-success' %>
+        <%= link_to 'Rejeitar', match_reject_path(match), method: :post, class: 'btn btn-danger' %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>

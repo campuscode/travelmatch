@@ -1,24 +1,21 @@
-<div class="container padding-top">
-  <%= @trip_plan.add_itinerary_link %>
-  <h3><%= @trip_plan.title %></h3>
-  <%= image_tag @trip_plan.photo.url(:medium) %>
-  <% if flash.any? %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <%= flash[:success] %>
-      <%= flash[:notice] %>
+<div class="padding-top">
+  <div class="row">
+    <div class="col-6">
+      <h3><%= @trip_plan.title %></h3>
+      <h4>Roteiros</h4>
+        <%= @trip_plan.add_itinerary_link %>
+      <% @trip_plan.itineraries.each do |itinerary| %>
+        <h5><%=  itinerary.season %></h5>
+        <h4><%= link_to itinerary.location, trip_plan_itinerary_path(itinerary)  %></h4>
+        <li> De <%= I18n.l(itinerary.start_date) %>
+          a <%= I18n.l(itinerary.end_date) %>
+        </li>
+      <% end %>
     </div>
-  <% end %>
-  Roteiros
-  <% @trip_plan.itineraries.each do |itinerary| %>
-    <h4><%= link_to itinerary.season, trip_plan_itinerary_path(itinerary) %></h4>
-    <h5><%= itinerary.location %></h5>
-    <li> De <%= I18n.l(itinerary.start_date) %>
-      a <%= I18n.l(itinerary.end_date) %>
-    </li>
-  <% end %>
+    <div class="col-4">
+      <%= image_tag @trip_plan.photo.url(:medium) %>
+    </div>
+  </div>
   <br /> <br />
   <% if user_signed_in? %>
     <div>

@@ -32,7 +32,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
 
     expect(page).to have_css('h5', text: 'Cristo')
     expect(page).to have_css('li', text: 'Cristo Redentor')
@@ -73,7 +73,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
 
     expect(page).to have_css('h5', text: 'Hotel na paulista')
     expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
@@ -114,7 +114,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
 
     expect(page).to have_css('h5', text: 'Almoço')
     expect(page).to have_css('li', text: 'Comida típica carioca')
@@ -148,7 +148,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
     click_on 'Adicionar refeição'
 
     fill_in 'Título:', with: 'Almoço'
@@ -193,7 +193,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
     click_on 'Adicionar ponto turistico'
 
     fill_in 'Título:', with: 'Cristo'
@@ -238,7 +238,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Meus planos'
     click_on 'Férias de fim de ano'
-    click_on 'Natal e ano novo'
+    click_on 'Rio de janeiro'
     click_on 'Adicionar hospedagem'
 
     fill_in 'Título:', with: 'Hotel na paulista'

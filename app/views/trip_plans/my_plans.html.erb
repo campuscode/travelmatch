@@ -1,6 +1,8 @@
 <div class="container padding-top">
   <h3>Meus Planos</h3>
-  <% @trip_plans.each do |trip_plan| %>
-  <%= render trip_plan %>
-  <% end %>
+  <div class="row">
+    <% @trip_plans.each do |trip_plan| %>
+      <%= render trip_plan %>
+    <% end %>
+  </div>
 </div>
