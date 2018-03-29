@@ -5,7 +5,6 @@ class CreateTripPlans < ActiveRecord::Migration[5.1]
       t.date :start_date
       t.date :end_date
       t.text :description
-
       t.timestamps
     end
   end

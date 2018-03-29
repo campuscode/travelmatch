@@ -34,7 +34,7 @@ feature 'Traveler reject a match your trip plan' do
     click_on 'Enviar'
     click_on 'Meus planos'
     click_on trip_plan.title
-    within("div#match_#{match.id}") do
+    within("tr#match_#{match.id}") do
       click_on 'Rejeitar'
     end
 

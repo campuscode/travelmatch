@@ -12,6 +12,7 @@ pt-BR:
         title: Título
         start_date: Data inicial
         end_date: Data final
+        description: Descrição
       itinerary:
         location: Localidade
         season: Temporada

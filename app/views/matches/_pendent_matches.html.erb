@@ -1,10 +1,21 @@
-<h5>Solicitações recebidas</h5>
-<% matches.each do |match| %>
-  <div id="match_<%= match.id %>">
-    <p>Usuário: <%= match.user.email %></p>
-    <p>Mensagem: <%= match.comment %></p>
-    <p>Status: <%= match.status %></p>
-    <%= link_to 'Aceitar', match_accept_path(match), method: :post %>
-    <%= link_to 'Rejeitar', match_reject_path(match), method: :post %>
-  </div>
-<% end %>
+<hr>
+<h5><b>Solicitações recebidas</b></h5>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Usuário</th>
+      <th scope="col">Mensagem</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% matches.each do |match| %>
+    <tr id="match_<%= match.id %>">
+      <td><%= match.user.email %></td>
+      <td><%= match.comment %></td>
+      <td><%= link_to 'Aceitar', match_accept_path(match), method: :post %> |
+      <%= link_to 'Rejeitar', match_reject_path(match), method: :post %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
