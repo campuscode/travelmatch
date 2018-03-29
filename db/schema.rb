@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328010647) do
+ActiveRecord::Schema.define(version: 20180328220916) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180328010647) do
     t.decimal "value"
     t.string "cuisine"
     t.string "price_rating"
+    t.decimal "daily_value"
+    t.string "accommodation_type"
     t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
   end
 

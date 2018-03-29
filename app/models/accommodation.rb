@@ -1,0 +1,3 @@
+class Accommodation < Activity
+  
+end

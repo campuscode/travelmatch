@@ -1,0 +1,8 @@
+<h3> <%= accommodation.title %> </h3>
+<ul>
+  <li> <%= accommodation.comment %> </li>
+  <li> <%= accommodation.location %> </li>
+  <li> <%= accommodation.activity_date.strftime('%d/%m/%Y') %> </li>
+  <li> <%= accommodation.accommodation_type %> </li>
+  <li> <%= number_to_currency(accommodation.daily_value, unit: "R$", separator: ",", delimiter: "") %> </li>
+</ul>

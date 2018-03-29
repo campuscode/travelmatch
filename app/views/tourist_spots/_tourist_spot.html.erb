@@ -1,4 +1,8 @@
 <h3><%= tourist_spot.title %></h3>
-<p> <%= tourist_spot.comment %> </p>
-<p> <%= tourist_spot.location %> </p>
-<p> <%= tourist_spot.activity_date.strftime('%d/%m/%Y') %> </p>
+<ul>
+  <li> <%= tourist_spot.comment %> </li>
+  <li> <%= tourist_spot.location %> </li>
+  <li> <%= tourist_spot.activity_date.strftime('%d/%m/%Y') %> </li>
+  <li> <%= tourist_spot.spot_type %> </li>
+  <li> <%= number_to_currency(tourist_spot.value, unit: "R$", separator: ",", delimiter: "") %> </li>
+</ul>

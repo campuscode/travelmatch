@@ -34,17 +34,17 @@ feature 'traveler register activities and add in itinerary' do
     activity = Accommodation.create(title:'Hotel na paulista',
       comment:'Hotel 5 estrelas na paulista',
       location:'Avenida Paulista', activity_date: '20/12/2018',
-      itinerary: itinerary, daily_value: 'R$ 150,00',
-      accomodation_type: 'Hotel' )
+      itinerary: itinerary, daily_value: '150',
+      accommodation_type: 'Hotel' )
 
     visit root_path
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
     click_on 'Rio de janeiro'
 
-    expect(page).to have_css('h3', text: 'Cristo')
-    expect(page).to have_css('li', text: 'Cristo Redentor')
-    expect(page).to have_css('li', text: 'Corcovado')
+    expect(page).to have_css('h3', text: 'Hotel na paulista')
+    expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
+    expect(page).to have_css('li', text: 'Avenida Paulista')
     expect(page).to have_css('li', text: '20/12/2018')
     expect(page).to have_css('li', text: 'Hotel')
     expect(page).to have_css('li', text: 'R$ 150,00')
@@ -73,7 +73,7 @@ feature 'traveler register activities and add in itinerary' do
     expect(page).to have_css('li', text: 'Caro')
   end
 
-  xscenario 'end show a restaurant' do
+  scenario 'end add a new meal' do
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
       start_date: '20/12/2018', end_date: '30/01/2019')
     itinerary = Itinerary.create(location: 'Rio de janeiro',
@@ -84,28 +84,27 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
     click_on 'Rio de janeiro'
-    click_on 'Criar nova atividade'
+    click_on 'Adicionar refeição'
 
     fill_in 'Título:', with: 'Almoço'
     fill_in 'Comentário:', with: 'Retaurante italiano no centro'
     fill_in 'Localização:', with: 'Rua: Tapajós N355'
     fill_in 'Data:', with: '20/12/2018'
-
-    select 'Restaurante', from: 'Tipo de atividade'
     fill_in 'Tipo de cozinha:', with: 'Italiana'
     fill_in 'Classificação de preço:', with: 'Barato'
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h1', text: 'Atividade')
     expect(page).to have_css('h3', text: 'Almoço')
-    expect(page).to have_css('p', text: 'Retaurante italiano no centro')
-    expect(page).to have_css('p', text: 'Rua: Tapajós N355')
-    expect(page).to have_css('p', text: '20/12/2018')
+    expect(page).to have_css('li', text: 'Retaurante italiano no centro')
+    expect(page).to have_css('li', text: 'Rua: Tapajós N355')
+    expect(page).to have_css('li', text: '20/12/2018')
+    expect(page).to have_css('li', text: 'Italiana')
+    expect(page).to have_css('li', text: 'Barato')
     expect(page).not_to have_content('Salvar')
   end
 
-  xscenario 'and show a hotel informations' do
+  scenario 'end add a tourist spot' do
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
       start_date: '20/12/2018', end_date: '30/01/2019')
     itinerary = Itinerary.create(location: 'Rio de janeiro',
@@ -116,56 +115,54 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
     click_on 'Rio de janeiro'
-    click_on 'Adicionar atividade'
+    click_on 'Adicionar ponto turistico'
 
-    fill_in 'Título:', with: 'Hotel'
-    fill_in 'Comentário:', with: 'Hospedagem'
-    fill_in 'Localização:', with: 'Rua São João 567'
-    fill_in 'Data:', with: '20/12/2018'
-
-    select 'Hospedagem', from: 'Tipo de atividade'
-    fill_in 'Tipo de hospedagem:', with: 'Hotel'
-    fill_in 'Valor da diária:', with: '15,50'
-
-    click_on 'Salvar'
-
-    expect(page).to have_css('h1', text: 'Atividade')
-    expect(page).to have_css('h3', text: 'Hotel')
-    expect(page).to have_css('p', text: 'Hospedagem')
-    expect(page).to have_css('p', text: 'Rua São João 567')
-    expect(page).to have_css('p', text: '20/12/2018')
-    expect(page).not_to have_content('Salvar')
-  end
-
-  xscenario 'and show tourist spot informations' do
-    trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
-    itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
-
-    visit root_path
-    click_on 'Planos de Viagem'
-    click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
-    click_on 'Adicionar atividade'
-
-    fill_in 'Título:', with: 'Cristo no Rio'
+    fill_in 'Título:', with: 'Cristo'
     fill_in 'Comentário:', with: 'Cristo Redentor'
     fill_in 'Localização:', with: 'Corcovado'
     fill_in 'Data:', with: '20/12/2018'
-
-    select 'Ponto Turístico', from: 'Tipo de atividade'
-    fill_in 'Tipo de atração:', with: 'Estátua'
-    fill_in 'Valor da entrada:', with: '90,00'
+    fill_in 'Tipo de ponto turistico:', with: 'Monumento'
+    fill_in 'Entrada:', with: '150,00'
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h1', text: 'Atividade')
-    expect(page).to have_css('h3', text: 'Cristo no Rio')
-    expect(page).to have_css('p', text: 'Cristo Redentor')
-    expect(page).to have_css('p', text: 'Corcovado')
-    expect(page).to have_css('p', text: '20/12/2018')
+    expect(page).to have_css('h3', text: 'Cristo')
+    expect(page).to have_css('li', text: 'Cristo Redentor')
+    expect(page).to have_css('li', text: 'Corcovado')
+    expect(page).to have_css('li', text: '20/12/2018')
+    expect(page).to have_css('li', text: 'Monumento')
+    expect(page).to have_css('li', text: 'R$ 150,00')
+    expect(page).not_to have_content('Salvar')
+  end
+
+  scenario 'end add a accommodation' do
+    trip_plan = TripPlan.create(title: 'Férias de fim de ano',
+      start_date: '20/12/2018', end_date: '30/01/2019')
+    itinerary = Itinerary.create(location: 'Rio de janeiro',
+      season: 'Natal e ano novo', start_date: '20/12/2018',
+      end_date: '30/01/2019', trip_plan: trip_plan)
+
+    visit root_path
+    click_on 'Planos de Viagem'
+    click_on 'Férias de fim de ano'
+    click_on 'Rio de janeiro'
+    click_on 'Adicionar hospedagem'
+
+    fill_in 'Título:', with: 'Hotel na paulista'
+    fill_in 'Comentário:', with: 'Hotel 5 estrelas na paulista'
+    fill_in 'Localização:', with: 'Avenida Paulista'
+    fill_in 'Data:', with: '20/12/2018'
+    fill_in 'Tipo de hospedagem:', with: 'Hotel'
+    fill_in 'Diária:', with: '150,00'
+
+    click_on 'Salvar'
+
+    expect(page).to have_css('h3', text: 'Hotel na paulista')
+    expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
+    expect(page).to have_css('li', text: 'Avenida Paulista')
+    expect(page).to have_css('li', text: '20/12/2018')
+    expect(page).to have_css('li', text: 'Hotel')
+    expect(page).to have_css('li', text: 'R$ 150,00')
     expect(page).not_to have_content('Salvar')
   end
 end
