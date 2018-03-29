@@ -3,7 +3,7 @@ class Match < ApplicationRecord
   belongs_to :user
   enum status: %i[pendent accepted reject]
 
-  # def trip_owner
-  #    trip_plan.user
-  # end
+  def trip_owner
+    trip_plan.user
+  end
 end

@@ -12,33 +12,16 @@
 <% @trip_plan.itineraries.each do |itinerary| %>
   <h4><%= itinerary.season %></h4>
   <h5><%= itinerary.location %></h5>
-  <li><%= "De #{itinerary.start_date.strftime('%d/%m/%Y')}
-  à #{itinerary.end_date.strftime('%d/%m/%Y')}" %></li>
+  <li> De <%= I18n.l(itinerary.start_date) %>
+  a <%= I18n.l(itinerary.end_date) %></li>
 <% end %>
 <br /> <br />
 <% if user_signed_in? %>
   <div>
-    <% if @trip_plan.user == current_user && @matches %>
-      <%= link_to 'Adiciona Roteiro', new_trip_plan_itinerary_path(@trip_plan) %> <br/> <br/>
-      <% if @matches.pendent.any? %>
-        <h5>Solicitações recebidas:</h5> <br/>
-        <% @matches.pendent.each do |match| %>
-          <div id="match_<%= match.id %>">
-            <p>Usuário: <%= match.user.email %></p>
-            <p>Mensagem: <%= match.comment %></p>
-            <p>Status: <%= match.status %></p>
-            <%= link_to 'Aceitar', match_accept_path(match), method: :post %>
-            <%= link_to 'Rejeitar', match_reject_path(match), method: :post %>
-          </div>
-        <% end %>
-      <% end %>
-      <% if @matches.accepted.any? %>
-        <h5>Matches deste plano</h5>
-        <% @matches.accepted.each do |match| %>
-          <p>Usuário: <%= match.user.email %> </p>
-        <% end %>
-      <% end %>
-    <% else %>
+    <%= @trip_plan.add_itinerary_link %>
+    <%= @trip_plan.pendent_matches %>
+    <%= @trip_plan.accepted_matches %>
+    <% unless @trip_plan.owner?(current_user) %>
       <% if !@match.is_a?(Match) && @match.any?  %>
         <% @match.each do |match| %>
           Status da solicitação de match: <p><%= Match.human_attribute_name(match.status) %> </p>
