@@ -3,8 +3,8 @@
     <div class="hero__content">
       <header class="hero__header text-left">
         <h1 class="hero__title white-text">Encontre o seu roteiro ideal</h1>
-          <p class="hero__paragraph">
-          </p>
+        <p class="hero__paragraph"> <%= link_to 'Ver todos os Planos', trip_plans_path, class:"text-white text-shadow" %>
+        </p>
       </header>
       <%= form_tag(search_path, method: 'get', class: 'form--line row') do %>
         <div class="input-group col-md-5 text-left">
