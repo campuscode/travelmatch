@@ -30,7 +30,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
 
@@ -71,7 +71,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
 
@@ -112,7 +112,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
 
@@ -146,7 +146,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
     click_on 'Adicionar refeição'
@@ -191,7 +191,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
     click_on 'Adicionar ponto turistico'
@@ -236,7 +236,7 @@ feature 'traveler register activities and add in itinerary' do
     fill_in 'Senha', with: user.password
     click_on 'Enviar'
 
-    click_on 'Planos de Viagem'
+    click_on 'Meus planos'
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
     click_on 'Adicionar hospedagem'

@@ -3,15 +3,19 @@
   <head>
     <title>Travel Match</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <h1>Travel Match</h1>
-    <%= flash[:error] %>
-    <%= render 'shared/nav' %>
-    <%= yield %>
+    <nav class="navbar site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <h1 class="logo py-2"><%= image_tag('logo_tm_100.png', size: '70') %> Travel Match</h1>
+        <%= render 'shared/navbar' %>
+      </div>
+    </nav>
+      <%= yield %>
   </body>
 </html>

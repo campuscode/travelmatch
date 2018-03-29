@@ -1,0 +1,23 @@
+%box-shadow {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .05), 0 1px 6px rgba(0, 0, 0, .1);
+}
+
+%round-border {
+  border-radius: 6px;
+}
+
+%subtle-round-border {
+  border-radius: 2px;
+}
+
+.box-shadow {
+  @extend %box-shadow;
+}
+
+.round-border {
+  @extend %round-border;
+}
+
+.subtle-round-border {
+  @extend %subtle-round-border;
+}

@@ -1,7 +1,8 @@
-<h3>Meus Matches</h3>
-<% if @matches.empty? %>
-  <p>Você não possui nenhum match.</p>
-<% else %>
+<div class="container padding-top">
+  <h3>Meus Matches</h3>
+  <% if @matches.empty? %>
+    <p>Você não possui nenhum match.</p>
+  <% else %>
   <% @matches.each do |match| %>
     <h4><%= match.trip_plan.title %></h4>
     <p>
@@ -9,6 +10,7 @@
       <%= I18n.l(match.trip_plan.end_date)%>
     </p>
     <p>Status: <%= Match.human_attribute_name(match.status)%></p>
-  <% end  %>
-<% end %>
-<%= link_to 'Voltar', root_path %>
+    <% end  %>
+  <% end %>
+  <%= link_to 'Voltar', root_path %>
+</div>

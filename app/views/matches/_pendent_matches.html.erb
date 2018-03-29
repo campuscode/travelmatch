@@ -5,5 +5,6 @@
     <p>Mensagem: <%= match.comment %></p>
     <p>Status: <%= match.status %></p>
     <%= link_to 'Aceitar', match_accept_path(match), method: :post %>
+    <%= link_to 'Rejeitar', match_reject_path(match), method: :post %>
   </div>
 <% end %>

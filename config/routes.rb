@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     resources :matches, shallow: true do
       post 'accept', to: 'matches#accept'
+      post 'reject', to: 'matches#reject'
     end
   end
   resources :matches, only: [:index]
