@@ -2,14 +2,20 @@
   <%= flash[:notice] %>
 </h3>
 
-<p><%= @itinerary.location %></p>
-<p><%= @itinerary.season %></p>
-<p><%= @itinerary.start_date %></p>
-<p><%= @itinerary.end_date %></p>
-
-<%= link_to 'Adicionar refeição', new_trip_plan_itinerary_meal_path(@itinerary.trip_plan, @itinerary) %>
-<%= link_to 'Adicionar ponto turistico', new_trip_plan_itinerary_tourist_spot_path(@itinerary.trip_plan, @itinerary) %>
+<%= link_to 'Adicionar refeição', new_trip_plan_itinerary_meal_path(@itinerary.trip_plan, @itinerary) %> |
+<%= link_to 'Adicionar ponto turistico', new_trip_plan_itinerary_tourist_spot_path(@itinerary.trip_plan, @itinerary) %> |
 <%= link_to 'Adicionar hospedagem', new_trip_plan_itinerary_accommodation_path(@itinerary.trip_plan, @itinerary) %>
+<br/><br/>
+
+<div>
+  <h4>Detalhes do Roteiro</h4>
+  <ul>
+    <li>Localidade: <%= @itinerary.location %></li>
+    <li>Temporada: <%= @itinerary.season %></li>
+    <li>Data Início: <%= @itinerary.start_date.strftime('%d/%m/%Y') %></li>
+    <li>Data Fim: <%= @itinerary.end_date.strftime('%d/%m/%Y') %></li>
+  </ul>
+</div>
 
 <h4>Atividades</h4>
 <% @itinerary.activities.each do |activity| %>

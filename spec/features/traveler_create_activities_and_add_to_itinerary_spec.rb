@@ -7,27 +7,34 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
-    activity = TouristSpot.create(title:'Cristo',
-      comment:'Cristo Redentor',
-      location:'Corcovado', activity_date: '20/12/2018',
-      itinerary: itinerary, spot_type: 'Monumento', value: 150.00 )
+                                 season: 'Natal e ano novo',
+                                 start_date: '20/12/2018',
+                                 end_date: '30/01/2019',
+                                 trip_plan: trip_plan)
+    TouristSpot.create(title: 'Cristo',
+                       comment: 'Cristo Redentor',
+                       location: 'Corcovado',
+                       activity_date: '20/12/2018',
+                       itinerary: itinerary,
+                       spot_type: 'Monumento',
+                       value: 150.00)
 
-  visit root_path
+    visit root_path
 
-  click_on 'Entrar'
-  fill_in 'Email', with: user.email
-  fill_in 'Senha', with: user.password
-  click_on 'Enviar'
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
 
-  click_on 'Planos de Viagem'
-  click_on 'Férias de fim de ano'
-  click_on 'Natal e ano novo'
+    click_on 'Planos de Viagem'
+    click_on 'Férias de fim de ano'
+    click_on 'Natal e ano novo'
 
-    expect(page).to have_css('h3', text: 'Cristo')
+    expect(page).to have_css('h5', text: 'Cristo')
     expect(page).to have_css('li', text: 'Cristo Redentor')
     expect(page).to have_css('li', text: 'Corcovado')
     expect(page).to have_css('li', text: '20/12/2018')
@@ -41,15 +48,21 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
-    activity = Accommodation.create(title:'Hotel na paulista',
-      comment:'Hotel 5 estrelas na paulista',
-      location:'Avenida Paulista', activity_date: '20/12/2018',
-      itinerary: itinerary, daily_value: '150',
-      accommodation_type: 'Hotel' )
+                                 season: 'Natal e ano novo',
+                                 start_date: '20/12/2018',
+                                 end_date: '30/01/2019',
+                                 trip_plan: trip_plan)
+    Accommodation.create(title: 'Hotel na paulista',
+                         comment: 'Hotel 5 estrelas na paulista',
+                         location: 'Avenida Paulista',
+                         activity_date: '20/12/2018',
+                         itinerary: itinerary,
+                         daily_value: '150',
+                         accommodation_type: 'Hotel')
 
     visit root_path
 
@@ -76,13 +89,21 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
-    activity = Meal.create(title:'Almoço', comment:'Comida típica carioca',
-      location:'Corcovado', activity_date: '20/12/2018', itinerary: itinerary,
-      cuisine: 'Brasileira', price_rating: 'Caro' )
+                                 season: 'Natal e ano novo',
+                                 start_date: '20/12/2018',
+                                 end_date: '30/01/2019',
+                                 trip_plan: trip_plan)
+    Meal.create(title: 'Almoço',
+                comment: 'Comida típica carioca',
+                location: 'Corcovado',
+                activity_date: '20/12/2018',
+                itinerary: itinerary,
+                cuisine: 'Brasileira',
+                price_rating: 'Caro')
 
     visit root_path
 
@@ -109,10 +130,14 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
-    itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
+    Itinerary.create(location: 'Rio de janeiro',
+                     season: 'Natal e ano novo',
+                     start_date: '20/12/2018',
+                     end_date: '30/01/2019',
+                     trip_plan: trip_plan)
 
     visit root_path
 
@@ -135,7 +160,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h3', text: 'Almoço')
+    expect(page).to have_css('h5', text: 'Almoço')
     expect(page).to have_css('li', text: 'Retaurante italiano no centro')
     expect(page).to have_css('li', text: 'Rua: Tapajós N355')
     expect(page).to have_css('li', text: '20/12/2018')
@@ -150,12 +175,16 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
-    itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
+    Itinerary.create(location: 'Rio de janeiro',
+                     season: 'Natal e ano novo',
+                     start_date: '20/12/2018',
+                     end_date: '30/01/2019',
+                     trip_plan: trip_plan)
 
-      visit root_path
+    visit root_path
 
     click_on 'Entrar'
     fill_in 'Email', with: user.email
@@ -176,7 +205,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h3', text: 'Cristo')
+    expect(page).to have_css('h5', text: 'Cristo')
     expect(page).to have_css('li', text: 'Cristo Redentor')
     expect(page).to have_css('li', text: 'Corcovado')
     expect(page).to have_css('li', text: '20/12/2018')
@@ -191,10 +220,14 @@ feature 'traveler register activities and add in itinerary' do
     )
 
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
-    itinerary = Itinerary.create(location: 'Rio de janeiro',
-      season: 'Natal e ano novo', start_date: '20/12/2018',
-      end_date: '30/01/2019', trip_plan: trip_plan)
+                                start_date: '20/12/2018',
+                                end_date: '30/01/2019',
+                                user: user)
+    Itinerary.create(location: 'Rio de janeiro',
+                     season: 'Natal e ano novo',
+                     start_date: '20/12/2018',
+                     end_date: '30/01/2019',
+                     trip_plan: trip_plan)
 
     visit root_path
 
@@ -217,7 +250,7 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h3', text: 'Hotel na paulista')
+    expect(page).to have_css('h5', text: 'Hotel na paulista')
     expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
     expect(page).to have_css('li', text: 'Avenida Paulista')
     expect(page).to have_css('li', text: '20/12/2018')

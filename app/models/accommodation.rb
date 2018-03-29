@@ -1,3 +1,2 @@
 class Accommodation < Activity
-  
 end

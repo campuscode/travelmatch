@@ -6,10 +6,16 @@ class MealsController < ApplicationController
 
   def create
     itinerary = Itinerary.find(params[:itinerary_id])
-    meal_params = params.require(:meal).permit(:title, :comment, :location,
-      :activity_date, :cuisine, :price_rating)
     meal = Meal.new(meal_params)
     itinerary.activities << meal
-    redirect_to trip_plan_itinerary_path(meal.itinerary.trip_plan.id, meal.itinerary.id)
+    redirect_to trip_plan_itinerary_path(meal.itinerary.trip_plan.id,
+                                         meal.itinerary.id)
+  end
+
+  private
+
+  def meal_params
+    params.params.require(:meal).permit(:title, :comment, :location,
+                                        :activity_date, :cuisine, :price_rating)
   end
 end
