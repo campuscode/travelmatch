@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :itineraries
     resources :matches, shallow: true do
       post 'accept', to: 'matches#accept'
+      post 'reject', to: 'matches#reject'
     end
   end
   resources :matches, only: [:index]
