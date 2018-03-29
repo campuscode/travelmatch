@@ -1,0 +1,10 @@
+<h5>Solicitações recebidas</h5>
+<% matches.each do |match| %>
+  <div id="match_<%= match.id %>">
+    <p>Usuário: <%= match.user.email %></p>
+    <p>Mensagem: <%= match.comment %></p>
+    <p>Status: <%= match.status %></p>
+    <%= link_to 'Aceitar', match_accept_path(match), method: :post %>
+    <%= link_to 'Rejeitar', match_reject_path(match), method: :post %>
+  </div>
+<% end %>
