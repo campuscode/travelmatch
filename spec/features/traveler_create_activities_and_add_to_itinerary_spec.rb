@@ -35,11 +35,11 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Rio de janeiro'
 
     expect(page).to have_css('h5', text: 'Cristo')
-    expect(page).to have_css('li', text: 'Cristo Redentor')
-    expect(page).to have_css('li', text: 'Corcovado')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Monumento')
-    expect(page).to have_css('li', text: 'R$ 150,00')
+    expect(page).to have_css('dd', text: 'Cristo Redentor')
+    expect(page).to have_css('h6', text: 'Corcovado')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Monumento')
+    expect(page).to have_css('dd', text: 'R$ 150,00')
   end
 
   scenario 'successfully a hotel' do
@@ -56,8 +56,8 @@ feature 'traveler register activities and add in itinerary' do
                                  start_date: '20/12/2018',
                                  end_date: '30/01/2019',
                                  trip_plan: trip_plan)
-    Accommodation.create(title: 'Hotel na paulista',
-                         comment: 'Hotel 5 estrelas na paulista',
+    Accommodation.create(title: 'Hotel na Paulista',
+                         comment: 'Hotel 5 estrelas na Paulista',
                          location: 'Avenida Paulista',
                          activity_date: '20/12/2018',
                          itinerary: itinerary,
@@ -75,12 +75,12 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Férias de fim de ano'
     click_on 'Rio de janeiro'
 
-    expect(page).to have_css('h5', text: 'Hotel na paulista')
-    expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
-    expect(page).to have_css('li', text: 'Avenida Paulista')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Hotel')
-    expect(page).to have_css('li', text: 'R$ 150,00')
+    expect(page).to have_css('h5', text: 'Hotel na Paulista')
+    expect(page).to have_css('dd', text: 'Hotel 5 estrelas na Paulista')
+    expect(page).to have_css('h6', text: 'Avenida Paulista')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Hotel')
+    expect(page).to have_css('dd', text: 'R$ 150,00')
   end
 
   scenario 'successfully a restaurant' do
@@ -117,11 +117,11 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Rio de janeiro'
 
     expect(page).to have_css('h5', text: 'Almoço')
-    expect(page).to have_css('li', text: 'Comida típica carioca')
-    expect(page).to have_css('li', text: 'Corcovado')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Brasileira')
-    expect(page).to have_css('li', text: 'Caro')
+    expect(page).to have_css('dd', text: 'Comida típica carioca')
+    expect(page).to have_css('h6', text: 'Corcovado')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Brasileira')
+    expect(page).to have_css('dd', text: 'Caro')
   end
 
   scenario 'end add a new meal' do
@@ -152,20 +152,20 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Adicionar refeição'
 
     fill_in 'Título:', with: 'Almoço'
-    fill_in 'Comentário:', with: 'Retaurante italiano no centro'
+    fill_in 'Comentário:', with: 'Retaurante itaddano no centro'
     fill_in 'Localização:', with: 'Rua: Tapajós N355'
     fill_in 'Data:', with: '20/12/2018'
-    fill_in 'Tipo de cozinha:', with: 'Italiana'
+    fill_in 'Tipo de cozinha:', with: 'Itaddana'
     fill_in 'Classificação de preço:', with: 'Barato'
 
     click_on 'Salvar'
 
     expect(page).to have_css('h5', text: 'Almoço')
-    expect(page).to have_css('li', text: 'Retaurante italiano no centro')
-    expect(page).to have_css('li', text: 'Rua: Tapajós N355')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Italiana')
-    expect(page).to have_css('li', text: 'Barato')
+    expect(page).to have_css('dd', text: 'Retaurante itaddano no centro')
+    expect(page).to have_css('h6', text: 'Rua: Tapajós N355')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Itaddana')
+    expect(page).to have_css('dd', text: 'Barato')
     expect(page).not_to have_content('Salvar')
   end
 
@@ -206,11 +206,11 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Salvar'
 
     expect(page).to have_css('h5', text: 'Cristo')
-    expect(page).to have_css('li', text: 'Cristo Redentor')
-    expect(page).to have_css('li', text: 'Corcovado')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Monumento')
-    expect(page).to have_css('li', text: 'R$ 150,00')
+    expect(page).to have_css('dd', text: 'Cristo Redentor')
+    expect(page).to have_css('h6', text: 'Corcovado')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Monumento')
+    expect(page).to have_css('dd', text: 'R$ 150,00')
     expect(page).not_to have_content('Salvar')
   end
 
@@ -241,8 +241,8 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Rio de janeiro'
     click_on 'Adicionar hospedagem'
 
-    fill_in 'Título:', with: 'Hotel na paulista'
-    fill_in 'Comentário:', with: 'Hotel 5 estrelas na paulista'
+    fill_in 'Título:', with: 'Hotel na Paulista'
+    fill_in 'Comentário:', with: 'Hotel 5 estrelas na Paulista'
     fill_in 'Localização:', with: 'Avenida Paulista'
     fill_in 'Data:', with: '20/12/2018'
     fill_in 'Tipo de hospedagem:', with: 'Hotel'
@@ -250,12 +250,12 @@ feature 'traveler register activities and add in itinerary' do
 
     click_on 'Salvar'
 
-    expect(page).to have_css('h5', text: 'Hotel na paulista')
-    expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
-    expect(page).to have_css('li', text: 'Avenida Paulista')
-    expect(page).to have_css('li', text: '20/12/2018')
-    expect(page).to have_css('li', text: 'Hotel')
-    expect(page).to have_css('li', text: 'R$ 150,00')
+    expect(page).to have_css('h5', text: 'Hotel na Paulista')
+    expect(page).to have_css('dd', text: 'Hotel 5 estrelas na Paulista')
+    expect(page).to have_css('h6', text: 'Avenida Paulista')
+    expect(page).to have_css('dd', text: '20/12/2018')
+    expect(page).to have_css('dd', text: 'Hotel')
+    expect(page).to have_css('dd', text: 'R$ 150,00')
     expect(page).not_to have_content('Salvar')
   end
 end

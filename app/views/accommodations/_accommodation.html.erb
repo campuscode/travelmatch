@@ -1,8 +1,12 @@
-<h5> <%= accommodation.title %> </h5>
-<ul>
-  <li> <%= accommodation.comment %> </li>
-  <li> <%= accommodation.location %> </li>
-  <li> <%= accommodation.activity_date.strftime('%d/%m/%Y') %> </li>
-  <li> <%= accommodation.accommodation_type %> </li>
-  <li> <%= number_to_currency(accommodation.daily_value, unit: "R$", separator: ",", delimiter: "") %> </li>
-</ul>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= accommodation.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= accommodation.location %></h6>
+    <dl>
+      <dt>Data</dt><dd><%= l accommodation.activity_date, format: :short %></dd>
+      <dt>Tipo</dt><dd><%= accommodation.accommodation_type %></dd>
+      <dt>Diária</dt><dd><%= number_to_currency(accommodation.daily_value) %></dd>
+      <dt>Comentário</dt><dd><%= accommodation.comment %></dd>
+    </dl>  
+  </div>
+</div>

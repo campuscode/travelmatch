@@ -1,27 +1,30 @@
-<%= form_for [@itinerary.trip_plan, @itinerary, @meal] do |f| %>
-  <div>
-    <%= f.label :title, 'Título:' %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :comment, 'Comentário:' %>
-    <%= f.text_field :comment %>
-  </div>
-  <div>
-    <%= f.label :location, 'Localização:' %>
-    <%= f.text_field :location %>
-  </div>
-  <div>
-    <%= f.label :activity_date, 'Data:' %>
-    <%= f.date_field :activity_date %>
-  </div>
-  <div>
-    <%= f.label :cuisine, 'Tipo de cozinha:' %>
-    <%= f.text_field :cuisine %>
-  </div>
-  <div>
-    <%= f.label :price_rating, 'Classificação de preço:' %>
-    <%= f.text_field :price_rating %>
-  </div>
-  <%= f.submit 'Salvar' %>
-<% end %>
+<div class="mt-5">
+  <h1>Nova Refeição para <%= @itinerary.location %></h1>
+  <%= form_for [@itinerary.trip_plan, @itinerary, @meal] do |f| %>
+    <div>
+      <%= f.label :title, 'Título:' %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :comment, 'Comentário:' %>
+      <%= f.text_field :comment %>
+    </div>
+    <div>
+      <%= f.label :location, 'Localização:' %>
+      <%= f.text_field :location %>
+    </div>
+    <div>
+      <%= f.label :activity_date, 'Data:' %>
+      <%= f.date_field :activity_date %>
+    </div>
+    <div>
+      <%= f.label :cuisine, 'Tipo de cozinha:' %>
+      <%= f.text_field :cuisine %>
+    </div>
+    <div>
+      <%= f.label :price_rating, 'Classificação de preço:' %>
+      <%= f.text_field :price_rating %>
+    </div>
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  <% end %>
+</div>

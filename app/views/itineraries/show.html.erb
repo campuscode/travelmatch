@@ -1,27 +1,26 @@
-<div class="container padding-top">
-  <h3>
-    <%= flash[:notice] %>
-  </h3>
-</div>
-
-<%= link_to 'Adicionar refeição', new_trip_plan_itinerary_meal_path(@itinerary.trip_plan, @itinerary) %> |
-<%= link_to 'Adicionar ponto turistico', new_trip_plan_itinerary_tourist_spot_path(@itinerary.trip_plan, @itinerary) %> |
-<%= link_to 'Adicionar hospedagem', new_trip_plan_itinerary_accommodation_path(@itinerary.trip_plan, @itinerary) %>
-<br/><br/>
-
-<div>
-  <h4>Detalhes do Roteiro</h4>
-  <ul>
-    <li>Localidade: <%= @itinerary.location %></li>
-    <li>Temporada: <%= @itinerary.season %></li>
-    <li>Data Início: <%= @itinerary.start_date.strftime('%d/%m/%Y') %></li>
-    <li>Data Fim: <%= @itinerary.end_date.strftime('%d/%m/%Y') %></li>
-  </ul>
-</div>
-
-<% if @itinerary.activities.any? %>
-  <h4>Atividades</h4>
-  <% @itinerary.activities.each do |activity| %>
-    <%= render activity %>
+<div class="mt-5">
+  <h2><%= @itinerary.location %> em <%= @itinerary.trip_plan.title %></h2>
+  <%= link_to 'Voltar para plano de viagem', @itinerary.trip_plan%>
+  <dl class="mt-5">
+    <dt>Temporada:</dt><dd><%= @itinerary.season %></dd>
+    <dt>Data Início:</dt><dd> <%= @itinerary.start_date.strftime('%d/%m/%Y') %></dd>
+    <dt>Data Fim:</dt><dd><%= @itinerary.end_date.strftime('%d/%m/%Y') %></dd>
+  </dl>
+  <div class="mt-3">
+    <h4>Atividades</h4>
+    <%= link_to 'Adicionar refeição', new_trip_plan_itinerary_meal_path(@itinerary.trip_plan, @itinerary), class: 'btn btn-light' %> |
+    <%= link_to 'Adicionar ponto turistico', new_trip_plan_itinerary_tourist_spot_path(@itinerary.trip_plan, @itinerary), class: 'btn btn-light' %> |
+    <%= link_to 'Adicionar hospedagem', new_trip_plan_itinerary_accommodation_path(@itinerary.trip_plan, @itinerary), class: 'btn btn-light' %>
+  </div>
+  <div class="mt-4">
+  <% if @itinerary.activities.any? %>
+    <div class="row">
+    <% @itinerary.activities.each do |activity| %>
+      <div class="col-4 mt-2">
+        <%= render activity %>
+      </div>
+    <% end %>
+    </div>
   <% end %>
-<% end %>
+  </div>
+</div>

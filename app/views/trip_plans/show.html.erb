@@ -1,16 +1,23 @@
 <div class="padding-top">
   <div class="row">
-    <div class="col-6">
+    <div class="col-8">
       <h3><%= @trip_plan.title %></h3>
       <h4>Roteiros</h4>
-        <%= @trip_plan.add_itinerary_link %>
+      <%= @trip_plan.add_itinerary_link %>
+      <div class="row">
       <% @trip_plan.itineraries.each do |itinerary| %>
-        <h5><%=  itinerary.season %></h5>
-        <h4><%= link_to itinerary.location, trip_plan_itinerary_path(itinerary)  %></h4>
-        <li> De <%= I18n.l(itinerary.start_date) %>
-          a <%= I18n.l(itinerary.end_date) %>
-        </li>
+        <div class="col-6 mt-2">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to itinerary.location, trip_plan_itinerary_path(@trip_plan, itinerary)  %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%=  itinerary.season %></h6>
+              <p class="card-text"> De <%= I18n.l(itinerary.start_date) %>
+                a <%= I18n.l(itinerary.end_date) %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
+      </div>
     </div>
     <div class="col-4">
       <%= image_tag @trip_plan.photo.url(:medium) %>

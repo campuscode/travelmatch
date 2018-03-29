@@ -1,27 +1,30 @@
-<%= form_for [@itinerary.trip_plan, @itinerary, @tourist_spot] do |f| %>
-  <div>
-    <%= f.label :title, 'Título:' %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :comment, 'Comentário:' %>
-    <%= f.text_field :comment %>
-  </div>
-  <div>
-    <%= f.label :location, 'Localização:' %>
-    <%= f.text_field :location %>
-  </div>
-  <div>
-    <%= f.label :activity_date, 'Data:' %>
-    <%= f.date_field :activity_date %>
-  </div>
-  <div>
-    <%= f.label :spot_type, 'Tipo de ponto turistico:' %>
-    <%= f.text_field :spot_type %>
-  </div>
-  <div>
-    <%= f.label :value, 'Entrada:' %>
-    <%= f.text_field :value %>
-  </div>
-  <%= f.submit 'Salvar' %>
-<% end %>
+<div class="mt-5">
+  <h1>Novo Ponto Turístico para <%= @itinerary.location %></h1>
+  <%= form_for [@itinerary.trip_plan, @itinerary, @tourist_spot] do |f| %>
+    <div>
+      <%= f.label :title, 'Título:' %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :comment, 'Comentário:' %>
+      <%= f.text_field :comment %>
+    </div>
+    <div>
+      <%= f.label :location, 'Localização:' %>
+      <%= f.text_field :location %>
+    </div>
+    <div>
+      <%= f.label :activity_date, 'Data:' %>
+      <%= f.date_field :activity_date %>
+    </div>
+    <div>
+      <%= f.label :spot_type, 'Tipo de ponto turistico:' %>
+      <%= f.text_field :spot_type %>
+    </div>
+    <div>
+      <%= f.label :value, 'Entrada:' %>
+      <%= f.text_field :value %>
+    </div>
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  <% end %>
+</div>
