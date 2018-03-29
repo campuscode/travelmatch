@@ -75,7 +75,7 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
 
-    expect(page).to have_css('h3', text: 'Hotel na paulista')
+    expect(page).to have_css('h5', text: 'Hotel na paulista')
     expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
     expect(page).to have_css('li', text: 'Avenida Paulista')
     expect(page).to have_css('li', text: '20/12/2018')
@@ -116,7 +116,7 @@ feature 'traveler register activities and add in itinerary' do
     click_on 'Férias de fim de ano'
     click_on 'Natal e ano novo'
 
-    expect(page).to have_css('h3', text: 'Almoço')
+    expect(page).to have_css('h5', text: 'Almoço')
     expect(page).to have_css('li', text: 'Comida típica carioca')
     expect(page).to have_css('li', text: 'Corcovado')
     expect(page).to have_css('li', text: '20/12/2018')
