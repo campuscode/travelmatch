@@ -1,20 +1,25 @@
-<h3>Plano de Viagem</h3>
-<% if flash.any? %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
 
-<% if @trip_plans.present? %>
-  <% @trip_plans.each do |trip_plan|  %>
-    <%= render trip_plan %>
+<div class="container padding-top">
+  <h3>Plano de Viagem</h3>
+  <% if flash.any? %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= flash[:notice] %>
+    </div>
   <% end %>
-<% else %>
-  <p>Não existem planos disponíveis</p>
-<% end %>
-<div class='float-none'>
-  <p><%= link_to 'Voltar', root_path %></p>
+
+  <% if @trip_plans.present? %>
+    <% @trip_plans.each do |trip_plan|  %>
+    <ul class="list-unstyled padding-top">
+      <%= render trip_plan %>
+    </ul>
+    <% end %>
+    <% else %>
+      <p>Não existem planos disponíveis</p>
+  <% end %>
+  <div class='float-none'>
+    <p><%= link_to 'Voltar', root_path %></p>
+  </div>
 </div>

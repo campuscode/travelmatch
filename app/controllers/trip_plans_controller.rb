@@ -26,7 +26,7 @@ class TripPlansController < ApplicationController
                         agora adicione um roteiro'
       redirect_to trip_plans_path
     else
-      flash.now[:error] = 'Não foi possível criar seu plano.'
+      flash[:error] = 'Não foi possível criar seu plano.'
       render :new
     end
   end
@@ -38,6 +38,7 @@ class TripPlansController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip_plan).permit(:title, :start_date, :end_date, :photo)
+    params.require(:trip_plan).permit(:title, :start_date, :end_date, :photo,
+                                      :description)
   end
 end

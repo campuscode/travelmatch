@@ -1,14 +1,29 @@
-<h3>Meus Matches</h3>
-<% if @matches.empty? %>
-  <p>Você não possui nenhum match.</p>
-<% else %>
-  <% @matches.each do |match| %>
-    <h4><%= match.trip_plan.title %></h4>
-    <p>
-      De: <%= I18n.l(match.trip_plan.start_date) %> a
-      <%= I18n.l(match.trip_plan.end_date)%>
-    </p>
-    <p>Status: <%= Match.human_attribute_name(match.status)%></p>
-  <% end  %>
-<% end %>
+<div class="container padding-top">
+  <h3>Meus Matches</h3>
+  <% if @matches.empty? %>
+    <p>Você não possui nenhum match.</p>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Plano de Viagem</th>
+          <th scope="col">Data</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @matches.each do |match| %>
+        <tr>
+          <td>
+            <%= link_to match.trip_plan.title, trip_plan_path(match.trip_plan) %>
+          </td>
+          <td><%= I18n.l(match.trip_plan.start_date) %> a
+          <%= I18n.l(match.trip_plan.end_date)%></td>
+          <td><%= Match.human_attribute_name(match.status)%></td>
+        </tr>
+      <% end  %>
+      </tbody>
+    </table>
+  <% end %>
 <%= link_to 'Voltar', root_path %>
+</div>

@@ -1,0 +1,24 @@
+.navbar {
+  a {
+    color: $white;
+  }
+  a:hover {
+    color: $bright-turquoise;
+  }
+}
+
+.padding-top {
+  padding-top: 2em;
+}
+
+.btn-custom {
+  background-color: $dark-blue;
+  color: $white;
+}
+
+.itinerary {
+  @extend %round-border;
+  background-color: $gainsboro;
+  margin-top: 1em;
+
+}

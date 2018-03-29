@@ -21,4 +21,11 @@ class MatchesController < ApplicationController
     match.accepted!
     redirect_to trip_plan_path(match.trip_plan)
   end
+
+  def reject
+    match = Match.find(params[:match_id])
+    match.reject!
+    flash[:notice] = 'Match rejeitado com sucesso.'
+    redirect_to trip_plan_path(match.trip_plan)
+  end
 end

@@ -1,0 +1,12 @@
+.input {
+  &-group {
+    padding: 1em;
+  }
+
+  &__field {
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid $gainsboro;
+    width: 100%;
+  }
+}
