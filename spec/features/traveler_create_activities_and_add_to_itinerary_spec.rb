@@ -2,8 +2,12 @@ require 'rails_helper'
 
 feature 'traveler register activities and add in itinerary' do
   scenario 'successfully a tourist spot' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
@@ -12,10 +16,16 @@ feature 'traveler register activities and add in itinerary' do
       location:'Corcovado', activity_date: '20/12/2018',
       itinerary: itinerary, spot_type: 'Monumento', value: 150.00 )
 
-    visit root_path
-    click_on 'Planos de Viagem'
-    click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+  visit root_path
+
+  click_on 'Entrar'
+  fill_in 'Email', with: user.email
+  fill_in 'Senha', with: user.password
+  click_on 'Enviar'
+
+  click_on 'Planos de Viagem'
+  click_on 'Férias de fim de ano'
+  click_on 'Natal e ano novo'
 
     expect(page).to have_css('h3', text: 'Cristo')
     expect(page).to have_css('li', text: 'Cristo Redentor')
@@ -26,8 +36,12 @@ feature 'traveler register activities and add in itinerary' do
   end
 
   scenario 'successfully a hotel' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
@@ -38,9 +52,15 @@ feature 'traveler register activities and add in itinerary' do
       accommodation_type: 'Hotel' )
 
     visit root_path
+
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
+
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+    click_on 'Natal e ano novo'
 
     expect(page).to have_css('h3', text: 'Hotel na paulista')
     expect(page).to have_css('li', text: 'Hotel 5 estrelas na paulista')
@@ -51,8 +71,12 @@ feature 'traveler register activities and add in itinerary' do
   end
 
   scenario 'successfully a restaurant' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
@@ -61,9 +85,15 @@ feature 'traveler register activities and add in itinerary' do
       cuisine: 'Brasileira', price_rating: 'Caro' )
 
     visit root_path
+
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
+
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+    click_on 'Natal e ano novo'
 
     expect(page).to have_css('h3', text: 'Almoço')
     expect(page).to have_css('li', text: 'Comida típica carioca')
@@ -74,16 +104,26 @@ feature 'traveler register activities and add in itinerary' do
   end
 
   scenario 'end add a new meal' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
 
     visit root_path
+
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
+
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+    click_on 'Natal e ano novo'
     click_on 'Adicionar refeição'
 
     fill_in 'Título:', with: 'Almoço'
@@ -105,16 +145,26 @@ feature 'traveler register activities and add in itinerary' do
   end
 
   scenario 'end add a tourist spot' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
 
-    visit root_path
+      visit root_path
+
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
+
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+    click_on 'Natal e ano novo'
     click_on 'Adicionar ponto turistico'
 
     fill_in 'Título:', with: 'Cristo'
@@ -136,16 +186,26 @@ feature 'traveler register activities and add in itinerary' do
   end
 
   scenario 'end add a accommodation' do
+    user = User.create(
+      email: 'eu@travel.com', password: '12345678'
+    )
+
     trip_plan = TripPlan.create(title: 'Férias de fim de ano',
-      start_date: '20/12/2018', end_date: '30/01/2019')
+      start_date: '20/12/2018', end_date: '30/01/2019', user: user)
     itinerary = Itinerary.create(location: 'Rio de janeiro',
       season: 'Natal e ano novo', start_date: '20/12/2018',
       end_date: '30/01/2019', trip_plan: trip_plan)
 
     visit root_path
+
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Enviar'
+
     click_on 'Planos de Viagem'
     click_on 'Férias de fim de ano'
-    click_on 'Rio de janeiro'
+    click_on 'Natal e ano novo'
     click_on 'Adicionar hospedagem'
 
     fill_in 'Título:', with: 'Hotel na paulista'

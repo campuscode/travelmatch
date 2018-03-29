@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20180328220916) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "trip_plan_id"
+    t.index ["trip_plan_id"], name: "index_itineraries_on_trip_plan_id"
   end
 
   create_table "matches", force: :cascade do |t|
