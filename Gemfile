@@ -8,9 +8,8 @@ end
 gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
-gem 'font-awesome-rails'
-=======
 gem 'draper', '~> 3.0'
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'paperclip', '~> 6.0.0'
