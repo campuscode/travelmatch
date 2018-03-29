@@ -1,0 +1,15 @@
+.pill {
+  @extend %box-shadow;
+  display: inline-block;
+  padding: .5em 1em;
+  background-color: $white;
+  color: $primary;
+  border-radius: 4em;
+  transition: all ease .4s;
+
+  &:hover {
+    color: $white;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}

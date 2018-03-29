@@ -9,14 +9,14 @@ pt-BR:
         other: Roteiros
     attributes:
       trip_plan:
-        title: Nome
+        title: Título
         start_date: Data inicial
         end_date: Data final
       itinerary:
         location: Localidade
         season: Temporada
-        start_date: Data início
-        end_date: Data fim
+        start_date: Data inicial
+        end_date: Data final
         season: Temporada
       match:
         pendent: "Pendente"

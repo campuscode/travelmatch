@@ -1,0 +1,33 @@
+$phone-width: 500px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin small {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin min($value) {
+  @media (min-width: #{$value}) {
+    @content;
+  }
+}
+
+@mixin max($value) {
+  @media (max-width: #{$value}) {
+    @content;
+  }
+}

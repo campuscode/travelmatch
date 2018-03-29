@@ -1,0 +1,18 @@
+.hero {
+  @extend %box-shadow;
+  min-height: 500px;
+  padding-top: 8em;
+  margin: 0;
+
+  &__content {
+    width: 100%;
+
+    @include small {
+      position: relative;
+    }
+  }
+
+  &__title {
+    font-size: 4em;
+  }
+}

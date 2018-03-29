@@ -1,0 +1,14 @@
+%section {
+  padding: 3em 0;
+}
+
+.section {
+  &,
+  &--journey {
+    @extend %section;
+  }
+
+  &__body {
+    padding-top: 2em;
+  }
+}
