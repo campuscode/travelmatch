@@ -1,5 +1,3 @@
 class ActivitiesController < ActionController::Base
-  def new
-    
-  end
+  def index; end
 end

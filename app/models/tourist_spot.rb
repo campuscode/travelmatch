@@ -1,2 +1,2 @@
-class TouristSpot < Activity    
+class TouristSpot < Activity
 end
