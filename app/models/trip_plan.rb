@@ -14,4 +14,8 @@ class TripPlan < ApplicationRecord
     return unless start_date && end_date && end_date < start_date
     errors.add(:end_date, "can't be smaller than start date")
   end
+
+  def owner?(u)
+    user == u
+  end
 end

@@ -4,8 +4,8 @@ class TripPlansController < ApplicationController
   end
 
   def show
-    @trip_plan = TripPlan.find(params[:id])
-    if @trip_plan.user == current_user
+    @trip_plan = TripPlan.find(params[:id]).decorate
+    if @trip_plan.owner?(current_user)
       @matches = @trip_plan.matches
     else
       @match = @trip_plan.matches.where('user_id = ?', current_user)
