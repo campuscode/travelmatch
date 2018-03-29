@@ -15,7 +15,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:title, :comment, :location,
-                                        :activity_date, :cuisine, :price_rating)
+    params.require(:meal).permit(:title, :comment, :location, :activity_date,
+                                 :cuisine, :price_rating)
   end
 end
