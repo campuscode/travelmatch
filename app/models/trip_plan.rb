@@ -1,4 +1,7 @@
 class TripPlan < ApplicationRecord
+  extend FriendlyId
+  friendly_id :location_and_dates, use: :slugged
+
   has_attached_file :photo, styles: { medium: '300x300>', thumb: '100x100>' },
                             default_url: '/images/:style/default.png'
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
@@ -17,5 +20,10 @@ class TripPlan < ApplicationRecord
 
   def owner?(user)
     self.user == user
+  end
+
+  private
+  def location_and_dates
+    "#{title} inicio #{start_date} fim #{end_date}"
   end
 end
