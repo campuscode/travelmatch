@@ -1,0 +1,2 @@
+class TouristSpot < Activity
+end

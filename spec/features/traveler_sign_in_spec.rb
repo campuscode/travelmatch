@@ -51,9 +51,8 @@ feature 'Traveler sign in' do
 
     # Expectativas
     expect(page).to have_css('h5', text: 'Solicitações recebidas')
-    expect(page).to have_css('td', text: match.user.email)
-    expect(page).to have_css('td', text: match.comment)
-    expect(page).to have_link('Aceitar')
-    expect(page).to have_link('Rejeitar')
+    expect(page).to have_css('h5.card-title', text: match.user.email)
+    expect(page).to have_css('p', text: match.comment)
+    expect(page).to have_css('h6.card-subtitle', text: 'Pendente')
   end
 end

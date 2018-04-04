@@ -12,6 +12,24 @@
 
 ActiveRecord::Schema.define(version: 20180329011221) do
 
+  create_table "activities", force: :cascade do |t|
+    t.string "title"
+    t.string "comment"
+    t.string "location"
+    t.date "activity_date"
+    t.integer "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.string "spot_type"
+    t.decimal "value"
+    t.string "cuisine"
+    t.string "price_rating"
+    t.decimal "daily_value"
+    t.string "accommodation_type"
+    t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false

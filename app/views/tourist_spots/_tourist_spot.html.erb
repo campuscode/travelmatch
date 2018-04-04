@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= tourist_spot.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= tourist_spot.location %></h6>
+    <dl>
+      <dt>Data</dt><dd><%= l tourist_spot.activity_date, format: :short %></dd>
+      <dt>Tipo</dt><dd><%= tourist_spot.spot_type %></dd>
+      <dt>Classificação de Preço</dt><dd><%= number_to_currency(tourist_spot.value) %></dd>
+      <dt>Comentário</dt><dd><%= tourist_spot.comment %></dd>
+    </dl>
+  </div>
+</div>

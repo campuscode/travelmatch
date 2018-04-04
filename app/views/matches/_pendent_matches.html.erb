@@ -1,21 +1,20 @@
 <hr>
-<h5><b>Solicitações recebidas</b></h5>
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Usuário</th>
-      <th scope="col">Mensagem</th>
-      <th scope="col">Ação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% matches.each do |match| %>
-    <tr id="match_<%= match.id %>">
-      <td><%= match.user.email %></td>
-      <td><%= match.comment %></td>
-      <td><%= link_to 'Aceitar', match_accept_path(match), method: :post %> |
-      <%= link_to 'Rejeitar', match_reject_path(match), method: :post %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<h5>Solicitações recebidas</h5>
+<% if matches.any? %>
+  <% matches.each do |match| %>
+  <div class="col-4">
+    <div id="match_<%= match.id %>" class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= match.user.email %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"> <%= Match.human_attribute_name(match.status) %> | <%= l match.created_at, format: :short %></h6>
+        <p class="card-text"><%= match.comment %></p>
+        <%= link_to 'Aceitar', match_accept_path(match), method: :post, class: 'btn btn-success' %>
+        <%= link_to 'Rejeitar', match_reject_path(match), method: :post, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% else  %>
+
+  <p>Não há solicitações pendentes.<p>
+<% end %>

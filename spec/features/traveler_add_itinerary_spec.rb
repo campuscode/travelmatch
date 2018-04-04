@@ -26,8 +26,9 @@ feature 'Traveler add a itinerary in Travel Plan' do
     click_on 'Salvar'
 
     expect(page).to have_content('Roteiro cadastrado com sucesso.')
-    expect(page).to have_content('Rio de janeiro')
-    expect(page).to have_content('De 20/12/2018 a 03/01/2019')
+    expect(page).to have_css('h5', text: 'Rio de janeiro')
+    expect(page).to have_css('h6', text: 'Natal e ano novo')
+    expect(page).to have_css('p', text: 'De 20/12/2018 a 03/01/2019')
   end
 
   scenario 'and has to fill all fields' do

@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= meal.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= meal.location %></h6>
+    <dl>
+      <dt>Data</dt><dd><%= l meal.activity_date, format: :short %></dd>
+      <dt>Cozinha</dt><dd><%= meal.cuisine %></dd>
+      <dt>Classificação de Preço</dt><dd><%= meal.price_rating %></dd>
+      <dt>Comentário</dt><dd><%= meal.comment %></dd>
+    </dl>
+  </div>
+</div>

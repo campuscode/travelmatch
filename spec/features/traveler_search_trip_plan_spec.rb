@@ -25,10 +25,9 @@ feature 'Traveler search for a trip plan' do
     click_on 'Buscar'
 
     # Expectativas
-    expect(page).to have_content('Resultados encontrados')
-    expect(page).to have_css('h1', text: 'Mochilão América do Sul')
-    expect(page).to have_css('li', text: 'Data inicial: 01/01/2019')
-    expect(page).to have_css('li', text: 'Data final: 01/02/2019')
+    expect(page).to have_content('1 resultados encontrados')
+    expect(page).to have_css('h5', text: 'Mochilão América do Sul')
+    expect(page).to have_css('p', text: 'De 01/01/2019 a 01/02/2019')
   end
   scenario 'and view only the correct trip plan' do
     # Criacao dos dados
@@ -69,14 +68,12 @@ feature 'Traveler search for a trip plan' do
     click_on 'Buscar'
 
     # Expectativas
-    expect(page).to have_content('Resultados encontrados')
-    expect(page).to have_css('h1', text: 'Mochilão América do Sul')
-    expect(page).to have_css('li', text: 'Data inicial: 01/01/2019')
-    expect(page).to have_css('li', text: 'Data final: 01/02/2019')
+    expect(page).to have_content('1 resultados encontrados')
+    expect(page).to have_css('h5', text: 'Mochilão América do Sul')
+    expect(page).to have_css('p', text: 'De 01/01/2019 a 01/02/2019')
 
-    expect(page).not_to have_css('h1', text: 'Férias em São Paulo')
-    expect(page).not_to have_css('li', text: 'Data inicial: 01/03/2019')
-    expect(page).not_to have_css('li', text: 'Data final: 01/04/2019')
+    expect(page).not_to have_css('h5', text: 'Férias em São Paulo')
+    expect(page).not_to have_css('p', text: '01/03/2019')
   end
   scenario 'and view results that are in range by start_date' do
     # Criacao dos dados
@@ -131,19 +128,17 @@ feature 'Traveler search for a trip plan' do
     click_on 'Buscar'
 
     # Expectativas
-    expect(page).to have_content('Resultados encontrados')
-    expect(page).to have_css('h1', text: 'Mochilão América do Sul')
-    expect(page).to have_css('li', text: 'Data inicial: 01/01/2019')
-    expect(page).to have_css('li', text: 'Data final: 01/02/2019')
+    expect(page).to have_content('2 resultados encontrados')
+    expect(page).to have_css('h5', text: 'Mochilão América do Sul')
+    expect(page).to have_css('p', text: 'De 01/01/2019 a 01/02/2019')
 
-    expect(page).to have_css('h1', text: 'Mochilão em São Paulo')
-    expect(page).to have_css('li', text: 'Data inicial: 10/01/2019')
-    expect(page).to have_css('li', text: 'Data final: 10/03/2019')
+    expect(page).to have_css('h5', text: 'Mochilão em São Paulo')
+    expect(page).to have_css('p', text: 'De 10/01/2019 a 10/03/2019')
 
-    expect(page).not_to have_css('h1', text: 'Férias em São Paulo')
-    expect(page).not_to have_css('li', text: 'Data inicial: 01/03/2019')
-    expect(page).not_to have_css('li', text: 'Data final: 01/04/2019')
+    expect(page).not_to have_css('h5', text: 'Férias em São Paulo')
+    expect(page).not_to have_css('p', text: '01/03/2019')
   end
+
   scenario 'and view results that are in range by end_date' do
     # Criacao dos dados
     user_owner = User.create(
@@ -184,14 +179,12 @@ feature 'Traveler search for a trip plan' do
     click_on 'Buscar'
 
     # Expectativas
-    expect(page).to have_content('Resultados encontrados')
-    expect(page).to have_css('h1', text: 'Mochilão América do Sul')
-    expect(page).to have_css('li', text: 'Data inicial: 01/01/2019')
-    expect(page).to have_css('li', text: 'Data final: 01/02/2019')
+    expect(page).to have_content('1 resultados encontrados')
+    expect(page).to have_css('h5', text: 'Mochilão América do Sul')
+    expect(page).to have_css('p', text: 'De 01/01/2019 a 01/02/2019')
 
-    expect(page).not_to have_css('h1', text: 'Férias em São Paulo')
-    expect(page).not_to have_css('li', text: 'Data inicial: 01/03/2019')
-    expect(page).not_to have_css('li', text: 'Data final: 01/04/2019')
+    expect(page).not_to have_css('h5', text: 'Férias em São Paulo')
+    expect(page).not_to have_css('p', text: '01/03/2019')
   end
   scenario 'and dont found any results' do
     # Criacao dos dados
@@ -219,9 +212,8 @@ feature 'Traveler search for a trip plan' do
     # Expectativas
     expect(page).to have_content('Nenhum resultado encontrado')
     expect(page).not_to have_content('Resultados encontrados')
-    expect(page).not_to have_css('h1', text: 'Mochilão América do Sul')
-    expect(page).not_to have_css('li', text: 'Data inicial: 01/01/2019')
-    expect(page).not_to have_css('li', text: 'Data final: 01/02/2019')
+    expect(page).not_to have_css('h5', text: 'Mochilão América do Sul')
+    expect(page).not_to have_css('p', text: 'De 01/01/2019 a 01/02/2019')
   end
   scenario 'and the start_date cant be bigger than end_date' do
     # Navegacao

@@ -27,8 +27,8 @@ feature 'Traveler find a compatible trip' do
 
     # Expectativa
     expect(page).to have_css('h3', text: 'Mochilão na Europa')
-    expect(page).to have_content('Varsóvia')
-    expect(page).to have_content('De 01/06/2018 a 01/07/2018')
+    expect(page).to have_css('h5', text: 'Varsóvia')
+    expect(page).to have_css('p', text: 'De 01/06/2018 a 01/07/2018')
   end
   scenario 'and start date cant be greater than end date' do
     # Navegacao

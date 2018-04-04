@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= accommodation.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= accommodation.location %></h6>
+    <dl>
+      <dt>Data</dt><dd><%= l accommodation.activity_date, format: :short %></dd>
+      <dt>Tipo</dt><dd><%= accommodation.accommodation_type %></dd>
+      <dt>Diária</dt><dd><%= number_to_currency(accommodation.daily_value) %></dd>
+      <dt>Comentário</dt><dd><%= accommodation.comment %></dd>
+    </dl>  
+  </div>
+</div>

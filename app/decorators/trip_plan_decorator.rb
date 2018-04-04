@@ -3,7 +3,8 @@ class TripPlanDecorator < ApplicationDecorator
 
   def add_itinerary_link
     return '' unless user_is_owner
-    h.link_to 'Adicionar Roteiro', new_trip_plan_itinerary_path(object)
+    h.link_to('Adicionar Roteiro', new_trip_plan_itinerary_path(object),
+              class: 'btn btn-primary')
   end
 
   def pendent_matches

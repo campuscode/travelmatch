@@ -1,0 +1,21 @@
+<%= form_for [@trip_plan, @itinerary, @activity] do |f| %>
+<div>
+  <%= f.label :title, 'Título:' %>
+  <%= f.text_field :title, class: 'form-control' %>
+</div>
+<div>
+  <%= f.label :comment, 'Comentário:' %>
+  <%= f.text_field :comment, class: 'form-control' %>
+</div>
+<div>
+  <%= f.label :location, 'Localização:' %>
+  <%= f.text_field :location, class: 'form-control' %>
+</div>
+<div>
+  <%= f.label :activity_date, 'Data:' %>
+  <%= f.text_field :activity_date, class: 'form-control' %>
+</div>
+<div>
+  <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+</div>
+<% end %>

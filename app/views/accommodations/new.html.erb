@@ -1,0 +1,30 @@
+<div class="mt-5">
+  <h1>Nova Hospedagem para <%= @itinerary.location %></h1>
+  <%= form_for [@itinerary.trip_plan, @itinerary, @accommodation] do |f| %>
+    <div>
+      <%= f.label :title, 'Título:' %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :comment, 'Comentário:' %>
+      <%= f.text_field :comment %>
+    </div>
+    <div>
+      <%= f.label :location, 'Localização:' %>
+      <%= f.text_field :location %>
+    </div>
+    <div>
+      <%= f.label :activity_date, 'Data:' %>
+      <%= f.date_field :activity_date %>
+    </div>
+    <div>
+      <%= f.label :daily_value, 'Diária:' %>
+      <%= f.text_field :daily_value %>
+    </div>
+    <div>
+      <%= f.label :accommodation_type, 'Tipo de hospedagem:' %>
+      <%= f.text_field :accommodation_type %>
+    </div>
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to itinerary.location, trip_plan_itinerary_path(itinerary.trip_plan, itinerary)  %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%=  itinerary.season %></h6>
+    <p class="card-text"> De <%= I18n.l(itinerary.start_date) %>
+      a <%= I18n.l(itinerary.end_date) %></p>
+  </div>
+</div>

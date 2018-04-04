@@ -34,7 +34,7 @@ feature 'Traveler aprove a match in your trip plan' do
     click_on 'Enviar'
     click_on 'Meus planos'
     click_on trip_plan.title
-    within("tr#match_#{match.id}") do
+    within("div#match_#{match.id}") do
       click_on 'Aceitar'
     end
 
@@ -84,7 +84,7 @@ feature 'Traveler aprove a match in your trip plan' do
     click_on 'Enviar'
     click_on 'Meus planos'
     click_on trip_plan.title
-    within("tr#match_#{match.id}") do
+    within("div#match_#{match.id}") do
       click_on 'Aceitar'
     end
 
