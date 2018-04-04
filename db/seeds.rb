@@ -25,14 +25,20 @@ user_novo = User.create(
 #### Planos de Viagem
 
 trip_plan = TripPlan.create(title: 'Mochilão na América do Sul',
-  start_date: '01/01/2019', end_date: '01/03/2019', user: user
-)
+  start_date: '01/01/2019', end_date: '01/03/2019', user: user,
+  description: 'Mochilão pela América do Sul iniciando em Buenos Aires até Machu Picchu')
 
 trip_plan2 = TripPlan.create(title: 'Mochilão pelo Nordeste do Brasil',
-  start_date: '01/05/2019', end_date: '01/06/2019', user: user)
+  start_date: '01/05/2019', end_date: '01/06/2019', user: user,
+  description: 'Viagem percorrendo as praias do Nordeste brasileiro focando também na gastronomia nordestina')
 
 trip_plan3 = TripPlan.create(title: 'Turismo em São Paulo',
-  start_date: '20/01/2019', end_date: '10/02/2019', user: user)
+  start_date: '20/01/2019', end_date: '10/02/2019', user: user,
+  description: 'Conhecendo todos pontos turísticos de São Paulo como museus, centros comerciais, bares etc.')
+
+trip_plan4 = TripPlan.create(title: 'Desvendando o Japão',
+  start_date: '21/07/2016', end_date: '12/09/2016', user: user,
+  description: 'Mochilão feito no Japão para conhecer as cidades de Tóquio, Takayama, Hiroshima e Quioto')
 
 #### Roteiros Trip 1
 

@@ -40,7 +40,7 @@ feature 'Traveler aprove a match in your trip plan' do
 
     # Expectativa
     expect(page).to have_css('h5', text: 'Matches deste plano')
-    expect(page).to have_css('p', text: match.user.email)
+    expect(page).to have_css('td', text: match.user.email)
   end
   scenario 'and aprove only a request' do
     # Criacao dos dados
@@ -90,6 +90,6 @@ feature 'Traveler aprove a match in your trip plan' do
 
     # Expectativa
     expect(page).to have_css('h5', text: 'Matches deste plano')
-    expect(page).to have_css('p', text: user_match.email)
+    expect(page).to have_css('td', text: user_match.email)
   end
 end

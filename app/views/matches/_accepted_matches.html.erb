@@ -1,8 +1,20 @@
+<hr>
 <h5>Matches deste plano</h5>
 <% if matches.accepted.any? %>
-  <% matches.accepted.each do |match| %>
-    <p>Usuário: <%= match.user.email %> </p>
-  <% end %>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Usuário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% matches.accepted.each do |match| %>
+        <tr>
+          <td><%= match.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-  <p>Ainda não existem matches.</p>
+<p>Ainda não existem matches.</p>
 <% end  %>

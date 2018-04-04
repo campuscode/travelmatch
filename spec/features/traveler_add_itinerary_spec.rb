@@ -85,7 +85,7 @@ feature 'Traveler add a itinerary in Travel Plan' do
     expect(page).to(
       have_content('A data ínicio não pode ser maior que a data fim.')
     )
-    expect(page).to have_css('h1', text: 'Novo itinerário')
+    expect(page).to have_css('h3', text: 'Novo roteiro')
   end
 
   scenario 'and date itinerary needs to be inside of date trip_plan' do

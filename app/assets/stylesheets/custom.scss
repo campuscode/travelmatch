@@ -15,3 +15,10 @@
   background-color: $dark-blue;
   color: $white;
 }
+
+.itinerary {
+  @extend %round-border;
+  background-color: $gainsboro;
+  margin-top: 1em;
+
+}

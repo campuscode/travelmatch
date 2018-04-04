@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-8">
       <h3><%= @trip_plan.title %></h3>
+      <p>De: <%= I18n.l(@trip_plan.start_date) %> a <%= I18n.l(@trip_plan.end_date) %></p>
+      <p><%= @trip_plan.description %></p>
       <h4>Roteiros</h4>
       <%= @trip_plan.add_itinerary_link %>
       <div class="row">
@@ -23,23 +25,26 @@
       <br />
       <%= @trip_plan.accepted_matches %>
       <% unless @trip_plan.owner?(current_user) %>
-        <% if !@match.is_a?(Match) && @match.any?  %>
-          <% @match.each do |match| %>
-            Status da solicitação de match: <p><%= Match.human_attribute_name(match.status) %> </p>
-          <% end %>
-        <% elsif @match.new_record?   %>
+      <% if !@match.is_a?(Match) && @match.any?  %>
+        <% @match.each do |match| %>
+          Status da solicitação de match:
+          <p><%= Match.human_attribute_name(match.status) %> </p>
+        <% end %>
+      <% elsif @match.new_record? %>
+        <div class="form-control col-sm-6">
           <%= form_for [@trip_plan, @match] do |f| %>
             <div>
               <%= f.label :comment, "Envie uma mensagem" %> <br />
-              <%= f.text_area :comment %>
+              <%= f.text_area :comment, class: 'form-control'%>
             </div>
-            <div>
-              <%= f.submit "Solicite um match" %>
+            <div class="padding-top">
+              <%= f.submit "Solicite um match", class: 'btn btn-custom btn-lg' %>
             </div>
           <% end %>
-        <% end %>
+        </div>
       <% end %>
     </div>
   <% end %>
-  <%= link_to 'Voltar', trip_plans_path %>
+<% end %>
+<%= link_to 'Voltar', trip_plans_path %>
 </div>

@@ -20,11 +20,15 @@
       <%= f.date_field :end_date, class: 'form-control' %>
     </div>
     <div>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div>
       <%= f.label :photo, 'Foto' %>
       <%= f.file_field :photo, class: 'form-control' %>
     </div>
     <div class="padding-top">
-      <%= f.submit 'Criar um Plano de Viagem', class: 'btn btn-custom btn-lg"'%>
+      <%= f.submit 'Criar um Plano de Viagem', class: 'btn btn-custom btn-lg'%>
     </div>
     <% end %>
   </div>
